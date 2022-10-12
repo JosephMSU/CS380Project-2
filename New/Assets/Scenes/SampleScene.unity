@@ -407,8 +407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4420580048c526647b785c6a11243399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cam: {fileID: 0}
-  _hero: {fileID: 0}
+  _hero: {fileID: 1799345754}
   _zOffset: 10
 --- !u!1001 &1799345753
 PrefabInstance:
