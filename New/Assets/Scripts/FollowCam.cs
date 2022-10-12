@@ -5,11 +5,9 @@ using UnityEngine;
 public class FollowCam : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _cam;
-    [SerializeField]
     private GameObject _hero;
     [SerializeField]
-    private float _zOffset;
+    private float _zOffset = 10;
 
     private Vector3 _camPos;
 
@@ -19,7 +17,7 @@ public class FollowCam : MonoBehaviour
     {
         _camPos = _hero.transform.position;
         _camPos.z -= _zOffset;
-        _cam.transform.position = _camPos;
+        transform.position = _camPos;
     }
 
     // Update is called once per frame
@@ -28,6 +26,6 @@ public class FollowCam : MonoBehaviour
         Vector3 _heroPos = _hero.transform.position;
         _camPos.x = _heroPos.x;
         _camPos.y = _heroPos.y;
-        _cam.transform.position = _camPos;
+        transform.position = _camPos;
     }
 }
