@@ -364,7 +364,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -408,6 +408,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hero: {fileID: 1799345754}
+  _xOffset: 0
+  _yOffset: 2.5
   _zOffset: 10
 --- !u!1001 &1799345753
 PrefabInstance:
