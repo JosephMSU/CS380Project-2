@@ -466,7 +466,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 1
+  orthographic: 0
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -506,6 +506,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 963194225}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: 251bdcd6719a2f04ebb3364fb3f719ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -733,6 +734,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+=======
+  m_Script: {fileID: 11500000, guid: 4420580048c526647b785c6a11243399, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hero: {fileID: 1799345754}
+  _xOffset: 0
+  _yOffset: 2.5
+  _zOffset: 10
+>>>>>>> 3b432f1f8a1beb5bf4dbaa2bea319f47e7468f22
 --- !u!1001 &1799345753
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -807,12 +817,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0942075f5aa6914a8337dd8cf5e4372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
 --- !u!1 &2007398406
 GameObject:
+=======
+  speed: 5
+--- !u!54 &1799345756
+Rigidbody:
+>>>>>>> 3b432f1f8a1beb5bf4dbaa2bea319f47e7468f22
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2007398407}
@@ -827,10 +844,25 @@ GameObject:
   m_IsActive: 1
 --- !u!224 &2007398407
 RectTransform:
+=======
+  m_GameObject: {fileID: 1799345754}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &1799345757
+CapsuleCollider:
+>>>>>>> 3b432f1f8a1beb5bf4dbaa2bea319f47e7468f22
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
   m_GameObject: {fileID: 2007398406}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -886,3 +918,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2007398406}
   m_CullTransparentMesh: 1
+=======
+  m_GameObject: {fileID: 1799345754}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.45
+  m_Height: 3
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.25, z: 0}
+>>>>>>> 3b432f1f8a1beb5bf4dbaa2bea319f47e7468f22
