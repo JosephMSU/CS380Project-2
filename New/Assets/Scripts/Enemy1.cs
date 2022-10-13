@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy1 : MonoBehaviour
 {
     [SerializeField]
     private float _speed = 2.5f;
