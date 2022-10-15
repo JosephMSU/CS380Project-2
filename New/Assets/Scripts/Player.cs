@@ -13,10 +13,13 @@ public class Player : MonoBehaviour
     float speed = 5f;
 
     bool left = false;
+    float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
+                                                      // between plays. - Jason
     }
 
     // Update is called once per frame
@@ -46,6 +49,10 @@ public class Player : MonoBehaviour
     // update the Enemy script to match, or you can suggest a different approach.)  -Jason 
     public void TakeDamage(int dmgAmt)
     {
+        int totalDamage = (int)(dmgAmt * dmgMult);
+        if (totalDamage == 0)
+            totalDamage = 1;
+
 
     }
 }
