@@ -13,6 +13,8 @@ public class OptionsMenu : MonoBehaviour
     private Image _selected;
     [SerializeField]
     private Button[] _difficultyButtons;
+    [SerializeField]
+    private GameObject _pauseMenuPrefab;
 
     void Start()
     {
@@ -57,7 +59,20 @@ public class OptionsMenu : MonoBehaviour
 
     public void ExitButtonPushed()
     {
+        if (PlayerPrefs.GetInt("Playing") == 1)
+            Instantiate(_pauseMenuPrefab);
+
         Destroy(this.gameObject);
+    }
+
+    public void mPushed()
+    {
+        
+    }
+
+    public void quitButtonPushed()
+    {
+        Application.Quit();
     }
 
     public void DifficultyButtonPushed(float difficulty)
