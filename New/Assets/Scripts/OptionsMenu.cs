@@ -65,16 +65,6 @@ public class OptionsMenu : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    public void mPushed()
-    {
-        
-    }
-
-    public void quitButtonPushed()
-    {
-        Application.Quit();
-    }
-
     public void DifficultyButtonPushed(float difficulty)
     {
         PlayerPrefs.SetFloat("difficulty", difficulty);
