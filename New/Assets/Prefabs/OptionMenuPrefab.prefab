@@ -301,7 +301,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1000
   m_TargetDisplay: 0
 --- !u!114 &2524617002441475747
 MonoBehaviour:
@@ -362,6 +362,7 @@ MonoBehaviour:
   - {fileID: 2524617002957742468}
   - {fileID: 2524617002980154268}
   - {fileID: 2524617003006044203}
+  _vol: {fileID: 2524617003381413062}
 --- !u!1 &2524617002540607104
 GameObject:
   m_ObjectHideFlags: 0

@@ -37,12 +37,22 @@ public class OptionsMenu : MonoBehaviour
             pos.x = 200;
 
         _selected.transform.localPosition = pos;
+
+        _bar.value = PlayerPrefs.GetFloat("volume");
+
     }
 
     public void VolumeChanged()
     {
-        _volText.text = ((int)(_bar.value * 100)).ToString() + "%";
-        PlayerPrefs.SetFloat("volume", _bar.value);
+        string volume = Mathf.RoundToInt((_bar.value * 100)).ToString();
+        _volText.text = volume + "%";
+
+        if (volume == "100")
+            volume = "1";
+        else
+            volume = "0." + volume;
+
+        PlayerPrefs.SetFloat("volume", float.Parse(volume));
     }
 
     public void ExitButtonPushed()
