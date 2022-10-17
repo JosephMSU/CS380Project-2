@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+//<<<<<<< HEAD
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
 //=======
