@@ -8,20 +8,27 @@ public class Player : MonoBehaviour
     // suggest a different method.  - Jason
     [HideInInspector]
     public static bool invincible;
+    private Rigidbody rBody;
+    private MeshCollider mesh;
 
     [SerializeField]
     float speed = 5f;
+    public float jumpSpeed = 5f;
 
     bool left = false;
     // Start is called before the first frame update
     void Start()
     {
-        
+        rBody = transform.GetComponent<Rigidbody>();
+        mesh = transform.GetComponent<MeshCollider>();
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        /*Vector3 down = transform.TransformDirection(Vector3.down) * 10;
+        Debug.DrawRay(transform.position, down, Color.green);*/
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if (horizontal > 0)
@@ -32,6 +39,13 @@ public class Player : MonoBehaviour
         {
             left = true;
 
+        }
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded())
+            {
+                rBody.velocity = Vector3.up * jumpSpeed;
+            }
         }
 
         Vector3 pos = transform.position;
@@ -47,5 +61,21 @@ public class Player : MonoBehaviour
     public void TakeDamage(int dmgAmt)
     {
 
+    }
+
+    public void jump()
+    {
+        
+    }
+
+    public bool isGrounded()
+    {
+        RaycastHit hit;
+        Ray ray = new Ray(this.transform.position, (this.transform.up * -1));
+        Physics.Raycast(ray, out hit);
+        Vector3 hitPosition = hit.point;
+        float hitDistance = hit.distance;
+        Debug.Log(hitDistance);
+        return (hitDistance == 0);
     }
 }
