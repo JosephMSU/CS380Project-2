@@ -48,9 +48,9 @@ public class Enemy1 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == _hero && !Player.invincible)
+        /*if (other.gameObject == _hero && !Player.invincible)
         {
             _hero.GetComponent<Player>().TakeDamage(_dmgAmt);
-        }
+        }*/
     }
 }

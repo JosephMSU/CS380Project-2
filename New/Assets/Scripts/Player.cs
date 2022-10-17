@@ -21,13 +21,10 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-//<<<<<<< HEAD
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
-//=======
-//dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
+        dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
                                                       // between plays. - Jason
-//>>>>>>> 5deed22a04c39d5315dfa3edc5047e931df575c8*/
     }
 
     // Update is called once per frame
