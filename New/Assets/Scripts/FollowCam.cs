@@ -12,10 +12,15 @@ public class FollowCam : MonoBehaviour
     private float _yOffset = 2.5f;
     [SerializeField]
     private float _zOffset = 10;
+    [SerializeField]
+    private float _leftBound = -10;
+    [SerializeField]
+    private float _rightBound = 100;
 
 
     private Vector3 _camPos;
     private Vector3 _oldPos;
+    bool _follow = true;
 
 
     // Start is called before the first frame update
@@ -32,6 +37,9 @@ public class FollowCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!_follow)
+            return;
+
         Vector3 heroPos = _hero.transform.position;
         Vector3 newPos;
         newPos.x = heroPos.x + _xOffset;
@@ -40,6 +48,12 @@ public class FollowCam : MonoBehaviour
 
         _camPos = Vector3.Lerp(_oldPos, newPos, 0.05f);
         _oldPos = _camPos;
+
+        if (_camPos.x < _leftBound)
+            _camPos.x = _leftBound;
+        else if (_camPos.x > _rightBound)
+            _camPos.x = _rightBound;
+
         transform.position = _camPos;
     }
 }
