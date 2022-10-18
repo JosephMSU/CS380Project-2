@@ -18,7 +18,7 @@ public class OptionsMenu : MonoBehaviour
 
     void Start()
     {
-        if (PlayerPrefs.GetInt("Playing") == 0)
+        if (PlayerPrefs.GetInt("playing") == 1)
         {
             _selected.color = new Color(0.25f, 0.25f, 0.25f);
             foreach (Button b in _difficultyButtons)
@@ -59,7 +59,7 @@ public class OptionsMenu : MonoBehaviour
 
     public void ExitButtonPushed()
     {
-        if (PlayerPrefs.GetInt("Playing") == 1)
+        if (PlayerPrefs.GetInt("playing") == 1)
             Instantiate(_pauseMenuPrefab);
 
         Destroy(this.gameObject);

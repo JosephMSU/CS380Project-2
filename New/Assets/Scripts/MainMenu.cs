@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -48,6 +49,10 @@ public class MainMenu : MonoBehaviour
 
     public void LevelButtonHit(int level)
     {
+        // \/ \/ TEMPORARY \/ \/
+        if (level != 1) return;
+        // \/ /\ TEMPORARY /\ /\
 
+        SceneManager.LoadScene(level);
     }
 }
