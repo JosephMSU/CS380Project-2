@@ -12,10 +12,15 @@ public class MainMenu : MonoBehaviour
     private Button _button2;
     [SerializeField]
     private Button _button3;
+    [SerializeField]
+    private Text _highScore;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (!PlayerPrefs.HasKey("highScore"))
+            PlayerPrefs.SetInt("highScore", 0);
+
         if (!PlayerPrefs.HasKey("volume"))
             PlayerPrefs.SetFloat("volume", 1);
 
@@ -26,6 +31,8 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetInt("level", 1);
 
         PlayerPrefs.SetInt("playing", 0);
+
+        _highScore.text = "High Score: " + PlayerPrefs.GetInt("highScore");
 
         int level = PlayerPrefs.GetInt("level");
         if (level < 3)
