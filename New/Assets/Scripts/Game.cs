@@ -22,10 +22,11 @@ public class Game : MonoBehaviour
         if (paused)
             return;
 
-        if ((Input.GetKeyDown(KeyCode.Escape)))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             Instantiate(_pausePrefab);
             paused = true;
+            Time.timeScale = 0;
             return;
         }
     }
@@ -33,5 +34,6 @@ public class Game : MonoBehaviour
     public void PauseMenuDestroyed()
     {
         paused = false;
+        Time.timeScale = 1;
     }
 }
