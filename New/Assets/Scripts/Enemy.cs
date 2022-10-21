@@ -6,5 +6,5 @@ public class Enemy : MonoBehaviour
 {
     private float movementSpeed;
     private int dmgAmt;
-    private float 
+    private float temporaryNameToGetRidOfSyntaxError;
 }
