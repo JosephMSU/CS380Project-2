@@ -35,7 +35,7 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.SetInt("playing", 0);
 
-        _mixer.SetFloat("SoundVolume", Mathf.Log10(PlayerPrefs.GetFloat("volume")) * 20);
+        _mixer.SetFloat("soundVolume", Mathf.Log10(PlayerPrefs.GetFloat("volume")) * 20);
 
         _highScore.text = "High Score: " + PlayerPrefs.GetInt("highScore");
 

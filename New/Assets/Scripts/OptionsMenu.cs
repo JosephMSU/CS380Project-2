@@ -52,13 +52,8 @@ public class OptionsMenu : MonoBehaviour
         string volume = Mathf.RoundToInt((_bar.value * 100)).ToString();
         _volText.text = volume + "%";
 
-        if (volume == "100")
-            volume = "1";
-        else
-            volume = "0." + volume;
-
-        PlayerPrefs.SetFloat("volume", float.Parse(volume));
-        _mixer.SetFloat("SoundVolume", Mathf.Log10(float.Parse(volume)) * 20);
+        PlayerPrefs.SetFloat("volume", _bar.value);
+        _mixer.SetFloat("soundVolume", Mathf.Log10(_bar.value) * 20);
     }
 
     public void ExitButtonPushed()
