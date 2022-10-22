@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class MainMenu : MonoBehaviour
     private Button _button3;
     [SerializeField]
     private Text _highScore;
+    [SerializeField]
+    private AudioMixer _mixer;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,8 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.SetInt("playing", 0);
 
+        _mixer.SetFloat("SoundVolume", Mathf.Log10(PlayerPrefs.GetFloat("volume")) * 20);
+
         _highScore.text = "High Score: " + PlayerPrefs.GetInt("highScore");
 
         int level = PlayerPrefs.GetInt("level");
@@ -41,12 +46,6 @@ public class MainMenu : MonoBehaviour
             if (level < 2)
                 _button2.interactable = false;
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void OptionsButtonHit()

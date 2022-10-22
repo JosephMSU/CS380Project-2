@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class OptionsMenu : MonoBehaviour
 {
     [SerializeField]
-    private Scrollbar _bar;
+    private Slider _bar;
     [SerializeField]
     private Text _volText;
     [SerializeField]
@@ -15,6 +16,8 @@ public class OptionsMenu : MonoBehaviour
     private Button[] _difficultyButtons;
     [SerializeField]
     private GameObject _pauseMenuPrefab;
+    [SerializeField]
+    private AudioMixer _mixer;
 
     void Start()
     {
@@ -55,6 +58,7 @@ public class OptionsMenu : MonoBehaviour
             volume = "0." + volume;
 
         PlayerPrefs.SetFloat("volume", float.Parse(volume));
+        _mixer.SetFloat("SoundVolume", Mathf.Log10(float.Parse(volume)) * 20);
     }
 
     public void ExitButtonPushed()

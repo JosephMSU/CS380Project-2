@@ -377,6 +377,7 @@ MonoBehaviour:
   _button2: {fileID: 1201730888}
   _button3: {fileID: 1031411698}
   _highScore: {fileID: 539616297}
+  _mixer: {fileID: 24100000, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
 --- !u!1 &288223712
 GameObject:
   m_ObjectHideFlags: 0
