@@ -47,11 +47,12 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionStay(Collision other)
     {
-        /*if (other.gameObject == _hero && !Player.invincible)
+        if (other.gameObject == _hero && !Player.invincible)
         {
-            _hero.GetComponent<Player>().TakeDamage(_dmgAmt);
-        }*/
+            print("Collided With Hero");
+            //_hero.GetComponent<Player>().TakeDamage(_dmgAmt);
+        }
     }
 }
