@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     // Added for interfacing with the enemy script. Feel free to change the name or
-    // suggest a different method.  - Jason
+    // suggest a different method.  - Jason (remove comment before release)
     [HideInInspector]
     public static bool invincible;
     private Rigidbody rBody;
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
 
     bool left = false;
     float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
+                   // (remove comment before release)
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +25,7 @@ public class Player : MonoBehaviour
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
         dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
-                                                      // between plays. - Jason
+                                                      // between plays. - Jason (remove comment before release)
     }
 
     // Update is called once per frame
@@ -67,7 +68,8 @@ public class Player : MonoBehaviour
     // The player takes damage (added to interface with Enemy class.  I wanted to make it possible for
     // different enemys to give the player different amounts of damage if we decide to do so, and wanted to
     // make sure you are aware of it by adding this.  Feel free to change the name of the function, and I will
-    // update the Enemy script to match, or you can suggest a different approach.)  -Jason 
+    // update the Enemy script to match, or you can suggest a different approach.)  -Jason
+    // (remove comment before release)
     /*public void TakeDamage(int dmgAmt)
     {
         int totalDamage = (int)(dmgAmt * dmgMult);
