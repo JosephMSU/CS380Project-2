@@ -8,8 +8,6 @@ public class Game : MonoBehaviour
     [SerializeField]
     private GameObject _pausePrefab;
 
-    private bool paused = false;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -19,14 +17,11 @@ public class Game : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (paused)
-            return;
-
+        // if the esc key is pressed, open the pause menu and stop the Update functions
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Instantiate(_pausePrefab);
-            paused = true;
             Time.timeScale = 0;
+            Instantiate(_pausePrefab);
             return;
         }
     }
@@ -34,7 +29,6 @@ public class Game : MonoBehaviour
     public void PauseMenuDestroyed()
     {
         // start the update functions again
-        paused = false;
         Time.timeScale = 1;
     }
 }
