@@ -14,21 +14,17 @@ public class Enemy1 : MonoBehaviour
     private float _dir = 0;
     public static bool move = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
+        // move the zombie, if it should be moved.
         if (move)
         {
+            // Get the horizontal distance from the player
             Vector3 pos = transform.position;
             float horizontal = pos.x - _hero.transform.position.x;
-            float mov;
 
+            // choose movement direction
             if (horizontal < -0.1)
             {
                 _dir = 1;
@@ -42,6 +38,7 @@ public class Enemy1 : MonoBehaviour
                 return;
             }
 
+            // move toward player
             pos.x += (_dir * Time.deltaTime * _speed);
             transform.position = pos;
         }
@@ -51,6 +48,7 @@ public class Enemy1 : MonoBehaviour
     {
         if (other.gameObject == _hero && !Player.invincible)
         {
+            // damage the player
             print("Collided With Hero");
             //_hero.GetComponent<Player>().TakeDamage(_dmgAmt);
         }

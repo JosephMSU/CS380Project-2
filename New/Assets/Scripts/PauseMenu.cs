@@ -10,12 +10,16 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenuPushed()
     {
+        // go to main menu
         SceneManager.LoadScene(0);
     }
 
     public void ExitButtonPushed()
     {
+        // start the Update functions again
         Camera.main.GetComponent<Game>().PauseMenuDestroyed();
+
+        // exit the pause menu
         Destroy(this.gameObject);
     }
 
@@ -26,7 +30,10 @@ public class PauseMenu : MonoBehaviour
 
     public void OptionsButtonPushed()
     {
+        // show the options menu
         Instantiate(_optionsPrefab);
+
+        // exit the pause menu
         Destroy(this.gameObject);
     }
 }

@@ -26,6 +26,7 @@ public class FollowCam : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // set the camera's inital position
         _camPos = _hero.transform.position;
         _camPos.x += _xOffset;
         _camPos.y += _yOffset;
@@ -40,20 +41,24 @@ public class FollowCam : MonoBehaviour
         if (!_follow)
             return;
 
+        // set the camera's new position
         Vector3 heroPos = _hero.transform.position;
         Vector3 newPos;
         newPos.x = heroPos.x + _xOffset;
         newPos.y = heroPos.y + _yOffset;
         newPos.z = -(_zOffset);
 
+        // Interpolate between the old and new position for smoother camera movement
         _camPos = Vector3.Lerp(_oldPos, newPos, 0.05f);
         _oldPos = _camPos;
 
+        // keep the camera within bounds
         if (_camPos.x < _leftBound)
             _camPos.x = _leftBound;
         else if (_camPos.x > _rightBound)
             _camPos.x = _rightBound;
 
+        // set the camera's position
         transform.position = _camPos;
     }
 }

@@ -8,7 +8,7 @@ using UnityEngine.Audio;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject _buttonsPrefab;
+    private GameObject _optionsPrefab;
     [SerializeField]
     private Button _button2;
     [SerializeField]
@@ -21,6 +21,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        // set info used between plays to default values, if they don't exist
         if (!PlayerPrefs.HasKey("highScore"))
             PlayerPrefs.SetInt("highScore", 0);
 
@@ -35,10 +36,13 @@ public class MainMenu : MonoBehaviour
 
         PlayerPrefs.SetInt("playing", 0);
 
+        // set the volume
         _mixer.SetFloat("soundVolume", Mathf.Log10(PlayerPrefs.GetFloat("volume")) * 20);
 
+        // show the high score
         _highScore.text = "High Score: " + PlayerPrefs.GetInt("highScore");
 
+        // determine which levels have been played
         int level = PlayerPrefs.GetInt("level");
         if (level < 3)
         {
@@ -50,7 +54,7 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsButtonHit()
     {
-        Instantiate(_buttonsPrefab);
+        Instantiate(_optionsPrefab);
     }
 
     public void LevelButtonHit(int level)
@@ -59,6 +63,7 @@ public class MainMenu : MonoBehaviour
         if (level != 1) return;
         // \/ /\ TEMPORARY /\ /\
 
+        // load the next scene
         SceneManager.LoadScene(level);
     }
 }

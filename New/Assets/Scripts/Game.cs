@@ -33,6 +33,7 @@ public class Game : MonoBehaviour
 
     public void PauseMenuDestroyed()
     {
+        // start the update functions again
         paused = false;
         Time.timeScale = 1;
     }
