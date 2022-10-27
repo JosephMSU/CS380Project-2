@@ -28,10 +28,12 @@ public class Enemy1 : MonoBehaviour
             if (horizontal < -0.1)
             {
                 _dir = 1;
+                transform.rotation = Quaternion.Euler(-90, 90, 0);
             }
             else if (horizontal > 0.1)
             {
                 _dir = -1;
+                transform.rotation = Quaternion.Euler(-90, -90, 0);
             }
             else
             {

@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     float speed = 5f;
-    public float jumpSpeed = 5f;
+    public float jumpSpeed = 10f;
 
     bool left = false;
     float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
@@ -44,10 +44,12 @@ public class Player : MonoBehaviour
         if (horizontal > 0)
         {
             left = false;
+            transform.rotation = Quaternion.Euler(0, 90, 0);
         }
         else if (horizontal < 0)
         {
             left = true;
+            transform.rotation = Quaternion.Euler(0, -90, 0);
 
         }
         if(Input.GetKeyDown(KeyCode.Space))
@@ -61,6 +63,7 @@ public class Player : MonoBehaviour
 
         Vector3 pos = transform.position;
         pos.x += (horizontal * Time.deltaTime * speed);
+        transform.position = pos;
 
 
     }
