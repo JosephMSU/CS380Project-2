@@ -12,11 +12,14 @@ public class Player : MonoBehaviour
     private MeshCollider mesh;
 
     [SerializeField]
-    float speed = 5f;
+    private float speed = 5f;
     public float jumpSpeed = 10f;
 
-    bool left = false;
-    float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
+    [SerializeField]
+    private GameObject Projectile;
+
+    private bool left = false;
+    private float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
                    // (remove comment before release)
 
     // Start is called before the first frame update
@@ -90,7 +93,24 @@ public class Player : MonoBehaviour
 
     public void shoot()
     {
+        // set the position of the proectile
+        Vector3 projectilePos = this.transform.position;
+        projectilePos.y += 2;
+        int projectileDirection;
+        if (left)
+        {
+            projectileDirection = -1;
+            //projectilePos.x -= 1;
+        }
+        else
+        {
+            projectileDirection = 1;
+            //projectilePos.x += 1;
+        }
 
+        // Create the projectile, and set it's movement direction
+        GameObject proj = Instantiate(Projectile, projectilePos , Quaternion.identity);
+        proj.GetComponent<Projectile>().dir = projectileDirection;
     }
 
     public bool isGrounded()

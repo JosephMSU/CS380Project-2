@@ -10,6 +10,10 @@ public class Enemy1 : MonoBehaviour
     private GameObject _hero;
     [SerializeField]
     private int _dmgAmt = 1;
+    [SerializeField]
+    private int _health = 1;
+    [SerializeField]
+    private Camera cam;
 
     private float _dir = 0;
     public static bool move = true;
@@ -17,11 +21,15 @@ public class Enemy1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector3 pos = transform.position;
+        float maxMovDist = cam.transform.position.x + cam.orthographicSize + 4;
+        float minMovDist = cam.transform.position.x - cam.orthographicSize - 4;
+
         // move the zombie, if it should be moved.
-        if (move)
+        if (move && pos.x > minMovDist && pos.x < maxMovDist)
         {
+
             // Get the horizontal distance from the player
-            Vector3 pos = transform.position;
             float horizontal = pos.x - _hero.transform.position.x;
 
             // choose movement direction
@@ -53,6 +61,15 @@ public class Enemy1 : MonoBehaviour
             // damage the player
             print("Collided With Hero");
             //_hero.GetComponent<Player>().TakeDamage(_dmgAmt);
+        }
+    }
+
+    public void TakeDamage()
+    {
+        _health--;
+        if (_health == 0)
+        {
+            Destroy(this.gameObject);
         }
     }
 }

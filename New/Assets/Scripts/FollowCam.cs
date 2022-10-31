@@ -20,7 +20,7 @@ public class FollowCam : MonoBehaviour
 
     private Vector3 _camPos;
     private Vector3 _oldPos;
-    bool _follow = true;
+    private bool _follow = true;
 
 
     // Start is called before the first frame update

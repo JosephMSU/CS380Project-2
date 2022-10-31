@@ -10,17 +10,20 @@ public class PauseMenu : MonoBehaviour
 
     public void MainMenuPushed()
     {
+        Time.timeScale = 1;
+
         // go to main menu
         SceneManager.LoadScene(0);
     }
 
     public void ExitButtonPushed()
     {
-        // start the Update functions again
-        Camera.main.GetComponent<Game>().PauseMenuDestroyed();
+        // start the update functions again
+        Time.timeScale = 1;
 
-        // exit the pause menu
+        // unpause the game
         Destroy(this.gameObject);
+        GameObject.FindWithTag("MainCamera").GetComponent<Game>().paused = false;
     }
 
     public void QuitButtonPushed()

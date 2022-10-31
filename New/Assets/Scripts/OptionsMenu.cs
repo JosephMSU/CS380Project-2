@@ -18,6 +18,8 @@ public class OptionsMenu : MonoBehaviour
     private GameObject _pauseMenuPrefab;
     [SerializeField]
     private AudioMixer _mixer;
+    [SerializeField]
+    private Image _background;
 
     void Start()
     {
@@ -37,11 +39,11 @@ public class OptionsMenu : MonoBehaviour
         Vector3 pos = _selected.transform.localPosition;
 
         if (difficulty == 0.5f)
-            pos.x = -200;
+            pos.x = -150;
         else if (difficulty == 1)
             pos.x = 0;
         else
-            pos.x = 200;
+            pos.x = 150;
 
         _selected.transform.localPosition = pos;
 
@@ -80,11 +82,11 @@ public class OptionsMenu : MonoBehaviour
         Vector3 pos = _selected.transform.localPosition;
 
         if (difficulty == 0.5f)
-            pos.x = -200;
+            pos.x = -150;
         else if (difficulty == 1)
             pos.x = 0;
         else
-            pos.x = 200;
+            pos.x = 150;
 
         _selected.transform.localPosition = pos;
     }

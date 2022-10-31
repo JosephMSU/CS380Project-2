@@ -14,16 +14,28 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private Button _button3;
     [SerializeField]
-    private Text _highScore;
+    private Text[] _highScores;
     [SerializeField]
     private AudioMixer _mixer;
+    [SerializeField]
+    private float _txtMovSpeed;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
+        StartCoroutine("HighScoreText");
+
         // set info used between plays to default values, if they don't exist
-        if (!PlayerPrefs.HasKey("highScore"))
-            PlayerPrefs.SetInt("highScore", 0);
+        if (!PlayerPrefs.HasKey("highScore1"))
+            PlayerPrefs.SetInt("highScore1", 0);
+
+        if (!PlayerPrefs.HasKey("highScore2"))
+            PlayerPrefs.SetInt("highScore2", 0);
+
+        if (!PlayerPrefs.HasKey("highScore3"))
+            PlayerPrefs.SetInt("highScore3", 0);
 
         if (!PlayerPrefs.HasKey("volume"))
             PlayerPrefs.SetFloat("volume", 1);
@@ -40,7 +52,10 @@ public class MainMenu : MonoBehaviour
         _mixer.SetFloat("soundVolume", Mathf.Log10(PlayerPrefs.GetFloat("volume")) * 20);
 
         // show the high score
-        _highScore.text = "High Score: " + PlayerPrefs.GetInt("highScore");
+        for (int i = 1; i < 4; i++)
+        {
+            _highScores[i - 1].text = "Level " + i + " High Score: <b>" + PlayerPrefs.GetInt("highScore" + i) + "</b>";
+        }
 
         // determine which levels have been played
         int level = PlayerPrefs.GetInt("level");
@@ -52,9 +67,32 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    IEnumerator HighScoreText()
+    {
+        while (true)
+        {
+            foreach (Text score in _highScores)
+            {
+                Vector3 pos = score.transform.localPosition;
+                pos.x -= Time.deltaTime * _txtMovSpeed;
+                if (pos.x <= -900)
+                    pos.x = 900;
+                score.transform.localPosition = pos;
+            }
+
+            // wait for next frame
+            yield return null;
+        }
+    }
+
     public void OptionsButtonHit()
     {
         Instantiate(_optionsPrefab);
+    }
+
+    public void QuitButtonHit()
+    {
+        Application.Quit();
     }
 
     public void LevelButtonHit(int level)
