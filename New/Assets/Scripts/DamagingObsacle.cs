@@ -33,7 +33,7 @@ public class DamagingObsacle : MonoBehaviour
         {
             // damage the player
             print("Collided With Hero");
-            //_hero.GetComponent<Player>().TakeDamage(_dmgAmt);
+            _hero.GetComponent<Player>().TakeDamage(_dmgAmt);
         }
         else if (other.gameObject.tag == "zombie" && _damagesZombies)
         {

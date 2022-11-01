@@ -18,13 +18,23 @@ public class Player : MonoBehaviour
     // suggest a different method.  - Jason (remove comment before release)
     [HideInInspector]
     public static bool invincible;
+    [HideInInspector]
+    public static bool infinitePit = false;
 
     private Rigidbody rBody;
     private MeshCollider mesh;
 
     [SerializeField]
     private float speed = 5f;
+    [SerializeField]
+    private GameObject _looseScreen;
+    [SerializeField]
+    private float _minimumY = -10f;
+    [SerializeField]
+    private float _invincibleTime = 2;
+
     public float jumpSpeed = 10f;
+    public int health = 10;
 
     [SerializeField]
     private GameObject Projectile;
@@ -36,6 +46,11 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (PlayerPrefs.GetFloat("difficulty") == 0.5f)
+            health *= 2;
+        else if (PlayerPrefs.GetFloat("difficulty") == 2f)
+            health /= 2;
+
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
         dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
@@ -45,6 +60,14 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.timeScale == 0)
+            return;
+
+        if (transform.position.y < _minimumY)
+        {
+            Instantiate(_looseScreen);
+            infinitePit = true;
+        }
         /*float x = this.transform.position.x - .4f;
         float x2 = this.transform.position.x + .4f;
         Vector3 position4 = new Vector3(x, this.transform.position.y, this.transform.position.z);
@@ -84,12 +107,25 @@ public class Player : MonoBehaviour
     // make sure you are aware of it by adding this.  Feel free to change the name of the function, and I will
     // update the Enemy script to match, or you can suggest a different approach.)  -Jason
     // (remove comment before release)
-    /*public void TakeDamage(int dmgAmt)
+    public void TakeDamage(int dmgAmt)
     {
-        int totalDamage = (int)(dmgAmt * dmgMult);
-        if (totalDamage == 0)
-            totalDamage = 1;
-    }*/
+        StartCoroutine("TemporaryInvincibility");
+
+        health -= dmgAmt;
+
+        if (health <= 0)
+        {
+            health = 0;
+            Instantiate(_looseScreen);
+        }
+    }
+
+    IEnumerator TemporaryInvincibility()
+    {
+        invincible = true;
+        yield return new WaitForSeconds(_invincibleTime);
+        invincible = false;
+    }
 
     public void jump()
     {

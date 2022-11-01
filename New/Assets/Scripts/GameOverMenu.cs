@@ -34,7 +34,9 @@ public class GameOverMenu : MonoBehaviour
         gameOver = true;
         if (_looseReason != null) // loose screen
         {
-            if (GameObject.FindWithTag("MainCamera").GetComponent<Game>().timer <= 0)
+            if (Player.infinitePit)
+                _looseReason.text = "Fell out of\nbounds.";
+            else if (GameObject.FindWithTag("MainCamera").GetComponent<Game>().timer <= 0)
                 _looseReason.text += "time";
             else
                 _looseReason.text += "health";
@@ -56,6 +58,7 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1;
         gameOver = false;
         win = false;
+        Player.infinitePit = false;
 
         // go to main menu
         SceneManager.LoadScene(0);
@@ -71,6 +74,7 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1;
         gameOver = false;
         win = false;
+        Player.infinitePit = false;
 
         // reload the level
         Scene scene = SceneManager.GetActiveScene();
@@ -90,6 +94,7 @@ public class GameOverMenu : MonoBehaviour
     {
         Time.timeScale = 1;
         gameOver = false;
+        Player.infinitePit = false;
 
         // go to the next level
         Scene scene = SceneManager.GetActiveScene();
