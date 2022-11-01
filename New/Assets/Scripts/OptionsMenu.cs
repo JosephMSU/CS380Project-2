@@ -1,3 +1,14 @@
+/*
+ * OptionsMenu.cs
+ * Main Author:  Jason
+ * Other Authors:  
+ * 
+ * Manages the options menu, and stores the selected volume and difficulty in the
+ * PlayerPrefs.
+ *     
+ * This script is attached to the options menu
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,9 +28,11 @@ public class OptionsMenu : MonoBehaviour
     [SerializeField]
     private GameObject _pauseMenuPrefab;
     [SerializeField]
-    private AudioMixer _mixer;
+    private GameObject _LooseMenuPrefab;
     [SerializeField]
-    private Image _background;
+    private GameObject _WinMenuPrefab;
+    [SerializeField]
+    private AudioMixer _mixer;
 
     void Start()
     {
@@ -65,8 +78,16 @@ public class OptionsMenu : MonoBehaviour
 
     public void ExitButtonPushed()
     {
+        // show win or loose menu if game is over
+        if (GameOverMenu.gameOver)
+        {
+            if (GameOverMenu.win)
+                Instantiate(_WinMenuPrefab);
+            else
+                Instantiate(_LooseMenuPrefab);
+        }
         // show the pause menu if the game is playing
-        if (PlayerPrefs.GetInt("playing") == 1)
+        else if (PlayerPrefs.GetInt("playing") == 1)
             Instantiate(_pauseMenuPrefab);
 
         // exit the options menu

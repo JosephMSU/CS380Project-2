@@ -1,3 +1,13 @@
+/*
+ * PauseMenu.cs
+ * Main Author:  Jason
+ * Other Authors:  
+ * 
+ * Manages the pause menu.
+ *     
+ * This script is attached to the pause menu.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

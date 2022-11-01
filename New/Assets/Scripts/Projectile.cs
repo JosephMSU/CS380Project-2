@@ -1,3 +1,13 @@
+/*
+ * Projectile.cs
+ * Main Author:  Jason
+ * Other Authors:  
+ * 
+ * Manages projectiles shot by the player.
+ *     
+ * This script is attached all player projectiles.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,9 +15,14 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField]
-    private float _speed = 10f;
+    private float _speed = 20f;
+    [SerializeField]
+    private int _dmgAmt = 1;
+    [SerializeField]
+    private int _killScore = 1;
 
-    public int dir; // -1 for left, or 1 for right
+    [HideInInspector]
+    public int dir; // -1 for left, or 1 for right.  Public because the Player script needs to set it's value.
     private Camera cam;
 
     float maxDist;
@@ -35,7 +50,8 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.tag == "zombie")
         {
-            other.gameObject.GetComponent<Enemy1>().TakeDamage();
+            other.gameObject.GetComponent<Enemy1>().TakeDamage(_dmgAmt);
+            cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
         }
 
         Destroy(this.gameObject);

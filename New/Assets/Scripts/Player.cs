@@ -1,3 +1,13 @@
+/*
+ * Player.cs
+ * Main Author:  Joe
+ * Other Authors:  Jason
+ * 
+ * Manages the player, and controls player movement through user input.
+ *     
+ * This script is attached to the player character.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +18,7 @@ public class Player : MonoBehaviour
     // suggest a different method.  - Jason (remove comment before release)
     [HideInInspector]
     public static bool invincible;
+
     private Rigidbody rBody;
     private MeshCollider mesh;
 
@@ -53,7 +64,6 @@ public class Player : MonoBehaviour
         {
             left = true;
             transform.rotation = Quaternion.Euler(0, -90, 0);
-
         }
         if(Input.GetKeyDown(KeyCode.Space))
         {
@@ -67,8 +77,6 @@ public class Player : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x += (horizontal * Time.deltaTime * speed);
         transform.position = pos;
-
-
     }
 
     // The player takes damage (added to interface with Enemy class.  I wanted to make it possible for

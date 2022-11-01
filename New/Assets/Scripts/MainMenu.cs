@@ -1,3 +1,15 @@
+/*
+ * MainMenu.cs
+ * Main Author:  Jason
+ * Other Authors:
+ *
+ * Manages the main menu, initializes the PlayerPrefs (our means of storing
+ * data between plays) if they don't exist yet, and sets the game's volume
+ * to the value stored in the PlayerPrefs.
+ *     
+ * This script is attached to the MenuCanvas object in the main menu scene.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

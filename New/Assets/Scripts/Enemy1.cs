@@ -1,3 +1,14 @@
+/*
+ * Enemy1.cs (to be renamed)
+ * Main Author:  Jason
+ * Other Authors: 
+ * 
+ * Controls the main enemies, zombies; which walk toward the player, and damage the player 
+ * if touched.
+ * 
+ * This script is attatched to all zombies.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,8 +18,6 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private float _speed = 2.5f;
     [SerializeField]
-    private GameObject _hero;
-    [SerializeField]
     private int _dmgAmt = 1;
     [SerializeField]
     private int _health = 1;
@@ -16,9 +25,15 @@ public class Enemy1 : MonoBehaviour
     private Camera cam;
 
     private float _dir = 0;
+    private GameObject _hero;
+
     public static bool move = true;
 
-    // Update is called once per frame
+    void Start()
+    {
+        _hero = GameObject.FindWithTag("Player");
+    }
+
     void Update()
     {
         Vector3 pos = transform.position;
@@ -64,10 +79,10 @@ public class Enemy1 : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int amtOfDmg)
     {
-        _health--;
-        if (_health == 0)
+        _health -= amtOfDmg;
+        if (_health <= 0)
         {
             Destroy(this.gameObject);
         }

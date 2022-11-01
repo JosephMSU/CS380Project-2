@@ -445,8 +445,9 @@ MonoBehaviour:
   - {fileID: 2524617002980154268}
   - {fileID: 2524617003006044203}
   _pauseMenuPrefab: {fileID: 1398554678942141480, guid: 43abd610b69fbca40a489d9aa45c0c58, type: 3}
+  _LooseMenuPrefab: {fileID: 6045262099245460136, guid: 263150e85a5f58048ad63a0010958427, type: 3}
+  _WinMenuPrefab: {fileID: 6045262099245460136, guid: ef32bb2579229e5449f5468400162d0e, type: 3}
   _mixer: {fileID: 24100000, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
-  _background: {fileID: 0}
 --- !u!1 &2524617002540607104
 GameObject:
   m_ObjectHideFlags: 0
@@ -1296,9 +1297,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: '100%
-
-'
+  m_Text: 100%
 --- !u!1 &2524617003849875058
 GameObject:
   m_ObjectHideFlags: 0

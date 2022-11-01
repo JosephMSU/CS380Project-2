@@ -1,3 +1,13 @@
+/*
+ * FollowCam.cs
+ * Main Author:  Jason
+ * Other Authors: 
+ * 
+ * Controls the camera, by making it follow the player.
+ * 
+ * This script is attached to the cameras in the level scenes.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,11 +27,9 @@ public class FollowCam : MonoBehaviour
     [SerializeField]
     private float _rightBound = 100;
 
-
     private Vector3 _camPos;
     private Vector3 _oldPos;
     private bool _follow = true;
-
 
     // Start is called before the first frame update
     void Start()
