@@ -21,9 +21,11 @@ public class GameOverMenu : MonoBehaviour
     private GameObject _optionsPrefab;
 
     [SerializeField]
-    private Text _looseReason;  // null if win menu
+    private Text _info;
     [SerializeField]
     private Button _nextLevel;  // null if loose menu
+
+    private static string _infoText;
 
     public static bool gameOver = false;
     public static bool win = false;
@@ -32,25 +34,71 @@ public class GameOverMenu : MonoBehaviour
     {
         Time.timeScale = 0;
         gameOver = true;
-        if (_looseReason != null) // loose screen
-        {
-            if (Player.infinitePit)
-                _looseReason.text = "Fell out of\nbounds.";
-            else if (GameObject.FindWithTag("MainCamera").GetComponent<Game>().timer <= 0)
-                _looseReason.text += "time";
-            else
-                _looseReason.text += "health";
-        }
-        else if (_nextLevel != null) // win screen
-        {
-            win = true;
-            GameObject.FindWithTag("MainCamera").GetComponent<Game>().UpdateHighScore();
 
+        if (_nextLevel != null) // win screen
+        {
             if (SceneManager.GetActiveScene().buildIndex == 3)
                 _nextLevel.interactable = false;
-        }
 
-        
+            if (win)
+            {
+                _info.text = _infoText;
+                return;
+            }
+
+            // get the multiplier values
+            int difficultyMultiplier;
+            int timeMultiplier;
+            int healthMultiplier = GameObject.FindWithTag("Player").GetComponent<Player>().GetHealth();
+
+            float difficulty = PlayerPrefs.GetFloat("difficulty");
+            if (difficulty == 0.5) // easy
+            {
+                difficultyMultiplier = 1;
+            }
+            else if (difficulty == 1) // medium
+            {
+                difficultyMultiplier = 2;
+            }
+            else // hard
+            {
+                difficultyMultiplier = 3;
+            }
+
+            Game g = GameObject.FindWithTag("MainCamera").GetComponent<Game>();
+
+            // Apply multipliers to the score
+            timeMultiplier = g.GetTimeLeft();
+            int initialScore = g.score;
+            if (initialScore == 0)
+                g.score = 1;
+            g.score *= healthMultiplier;
+            g.score *= timeMultiplier;
+            g.score *= difficultyMultiplier;
+            g.UpdateScore(0);
+            g.UpdateHighScore();
+
+            // Show the score and multipliers
+
+            _infoText = "Initial score: <b>" + initialScore + "</b>\n\n"
+                + "Difficulty Multiplier: <b>" + difficultyMultiplier + "</b>\n\n"
+                + "Health Multiplier: <b>" + healthMultiplier + "</b>\n\n"
+                + "Time Multiplier: <b>" + timeMultiplier + "</b>\n\n\n"
+                + "Final Score: <b>" + g.score + "</b>";
+
+            _info.text = _infoText;
+
+            win = true;
+        }
+        else // loose screen
+        {
+            if (Player.infinitePit)
+                _info.text = "Fell out of\nbounds.";
+            else if (GameObject.FindWithTag("MainCamera").GetComponent<Game>().timer <= 0)
+                _info.text += "time";
+            else
+                _info.text += "health";
+        }
     }
 
     public void MainMenuPushed()

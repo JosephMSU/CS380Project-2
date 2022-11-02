@@ -11,6 +11,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -29,19 +30,29 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject _looseScreen;
     [SerializeField]
+    private GameObject _winScreen;
+    [SerializeField]
     private float _minimumY = -10f;
     [SerializeField]
     private float _invincibleTime = 2;
-
-    public float jumpSpeed = 10f;
-    public int health = 10;
+    [SerializeField]
+    private float jumpSpeed = 10f;
+    [SerializeField]
+    private int health = 10;
 
     [SerializeField]
     private GameObject Projectile;
+    [SerializeField]
+    private Text _healthLeft;
 
     private bool left = false;
     private float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
                    // (remove comment before release)
+
+    public int GetHealth()
+    {
+        return health;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +61,8 @@ public class Player : MonoBehaviour
             health *= 2;
         else if (PlayerPrefs.GetFloat("difficulty") == 2f)
             health /= 2;
+
+        _healthLeft.text = "Health:  <b>" + health + "</b>";
 
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
@@ -92,7 +105,7 @@ public class Player : MonoBehaviour
         {
             shoot();
         }
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
             jump();
         }
@@ -118,6 +131,8 @@ public class Player : MonoBehaviour
             health = 0;
             Instantiate(_looseScreen);
         }
+
+        _healthLeft.text = "Health:  <b>" + health + "</b>";
     }
 
     IEnumerator TemporaryInvincibility()
@@ -129,7 +144,7 @@ public class Player : MonoBehaviour
 
     public void jump()
     {
-        if (isGrounded())
+        if (IsGrounded())
         {
             rBody.velocity = Vector3.up * jumpSpeed;
         }
@@ -157,7 +172,15 @@ public class Player : MonoBehaviour
         proj.GetComponent<Projectile>().dir = projectileDirection;
     }
 
-    public bool isGrounded()
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "winArea")
+        {
+            Instantiate(_winScreen);
+        }
+    }
+
+    public bool IsGrounded()
     {
         bool grounded = false;
         RaycastHit hit1;
@@ -179,7 +202,7 @@ public class Player : MonoBehaviour
             {
                 Debug.Log("Hit the ground");
                 Debug.Log(hit1.distance);
-                if (hit1.distance <= .5)
+                if (hit1.distance <= .7)
                 {
                     grounded = true;
                     Debug.Log("Distance = 0");
@@ -190,7 +213,7 @@ public class Player : MonoBehaviour
         {
             if(hit2.transform.gameObject.tag == "ground")
             {
-                if(hit2.distance <= .5)
+                if(hit2.distance <= .7)
                 {
                     grounded = true;
                 }
@@ -200,7 +223,7 @@ public class Player : MonoBehaviour
         {
             if(hit3.transform.gameObject.tag == "ground")
             {
-                if(hit3.distance <= .5)
+                if(hit3.distance <= .7)
                 {
                     grounded = true;
                 }
@@ -210,7 +233,6 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Didn't hit");
         }
-
 
         /*float hitDistance1 = hit1.distance;
         float hitDistance2 = hit2.distance;
