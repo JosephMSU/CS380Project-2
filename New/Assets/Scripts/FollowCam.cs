@@ -17,15 +17,17 @@ public class FollowCam : MonoBehaviour
     [SerializeField]
     private GameObject _hero;
     [SerializeField]
-    private float _xOffset = 0;
+    private float _xOffset = 1.7f;
     [SerializeField]
-    private float _yOffset = 2.5f;
+    private float _yOffset = 1.5f;
     [SerializeField]
     private float _zOffset = 10;
     [SerializeField]
     private float _leftBound = -10;
     [SerializeField]
-    private float _rightBound = 100;
+    private float _rightBound = 200;
+    [SerializeField]
+    private float _interpolateAmt = 0.2f;
 
     private Vector3 _camPos;
     private Vector3 _oldPos;
@@ -57,7 +59,7 @@ public class FollowCam : MonoBehaviour
         newPos.z = -(_zOffset);
 
         // Interpolate between the old and new position for smoother camera movement
-        _camPos = Vector3.Lerp(_oldPos, newPos, 0.05f);
+        _camPos = Vector3.Lerp(_oldPos, newPos, _interpolateAmt);
         _oldPos = _camPos;
 
         // keep the camera within bounds

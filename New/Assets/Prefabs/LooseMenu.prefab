@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 6045262099245460137}
   - component: {fileID: 6045262099245460149}
   m_Layer: 5
-  m_Name: GameOver
+  m_Name: LooseMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,7 +120,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _optionsPrefab: {fileID: 2524617002441475757, guid: bbc7c5bd125d59341a7f9ca082b01471, type: 3}
-  _looseReason: {fileID: 6045262099981702794}
+  _info: {fileID: 6045262099981702794}
+  _nextLevel: {fileID: 0}
 --- !u!1 &6045262099481044156
 GameObject:
   m_ObjectHideFlags: 0

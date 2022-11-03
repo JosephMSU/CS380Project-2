@@ -32,15 +32,22 @@ public class Game : MonoBehaviour
 
     [HideInInspector]
     public bool paused = false;
+    [HideInInspector]
+    public int score;
 
     public float timer = 120f;
 
     private int _levelNumber;
-    private int _score;
+
+    public int GetTimeLeft()
+    {
+        return Mathf.RoundToInt(timer);
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        Player.invincible = false;
         Time.timeScale = 1;
         PlayerPrefs.SetInt("playing", 1);
         _levelNumber = SceneManager.GetActiveScene().buildIndex;
@@ -63,17 +70,17 @@ public class Game : MonoBehaviour
 
     public void UpdateScore(int addScore)
     {
-        _score += addScore;
-        _scoreTxt.text = "Score: <b>" + _score + "</b>";
+        score += addScore;
+        _scoreTxt.text = "Score: <b>" + score + "</b>";
     }
 
     public void UpdateHighScore()
     {
         // if the current score is higher than the highscore, update the highscore.
-        if (_score > PlayerPrefs.GetInt("highScore" + _levelNumber))
+        if (score > PlayerPrefs.GetInt("highScore" + _levelNumber))
         {
-            PlayerPrefs.SetInt("highScore" + _levelNumber, _score);
-            _highScore.text = "High Score: <b>" + _score + "</b>";
+            PlayerPrefs.SetInt("highScore" + _levelNumber, score);
+            _highScore.text = "High Score: <b>" + score + "</b>";
         }
     }
 

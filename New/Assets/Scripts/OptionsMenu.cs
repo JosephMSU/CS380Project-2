@@ -37,7 +37,7 @@ public class OptionsMenu : MonoBehaviour
     void Start()
     {
         // deactivate the difficulty buttons if the game is playing.
-        if (PlayerPrefs.GetInt("playing") == 1)
+        if (PlayerPrefs.GetInt("playing") == 1 && GameOverMenu.gameOver == false)
         {
             _selected.color = new Color(0.25f, 0.25f, 0.25f);
             foreach (Button b in _difficultyButtons)
