@@ -18,6 +18,8 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private float _speed = 2.5f;
     [SerializeField]
+    private int _killScore = 1;
+    [SerializeField]
     private int _dmgAmt = 1;
     [SerializeField]
     private int _health = 1;
@@ -84,6 +86,7 @@ public class Enemy1 : MonoBehaviour
         _health -= amtOfDmg;
         if (_health <= 0)
         {
+            cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
             Destroy(this.gameObject);
         }
     }

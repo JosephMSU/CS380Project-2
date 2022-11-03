@@ -47,6 +47,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        GameOverMenu.gameOver = false;
         Player.invincible = false;
         Time.timeScale = 1;
         PlayerPrefs.SetInt("playing", 1);

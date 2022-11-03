@@ -120,7 +120,6 @@ public class GameOverMenu : MonoBehaviour
     public void RetryButtonPushed()
     {
         Time.timeScale = 1;
-        gameOver = false;
         win = false;
         Player.infinitePit = false;
 
@@ -141,7 +140,6 @@ public class GameOverMenu : MonoBehaviour
     public void NextLevel()
     {
         Time.timeScale = 1;
-        gameOver = false;
         Player.infinitePit = false;
 
         // go to the next level

@@ -21,13 +21,37 @@ public class MovingPlaform : MonoBehaviour
     private Vector3 _pos1;
     [SerializeField]
     private Vector3 _pos2;
+    [SerializeField]
+    private float _startOffset = 12;
+    [SerializeField]
+    private bool _overrideEasyDifficultySlowDown = false;
+    [SerializeField]
+    private bool _overrideHardDifficultySpeedUp = false;
 
     private bool _toPos1;
+    private bool _started;
+    private GameObject _player;
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine("ToPos1");
+        _player = GameObject.FindWithTag("Player");
+        float difficulty = PlayerPrefs.GetFloat("difficulty");
+        if (difficulty == 0.5f && _overrideEasyDifficultySlowDown)
+            return;
+        else if (difficulty == 2 && _overrideHardDifficultySpeedUp)
+            return;
+        else
+            _speed *= PlayerPrefs.GetFloat("difficulty");
+    }
+
+    void Update()
+    {
+        if (_player.transform.position.x + _startOffset >= transform.position.x && !_started)
+        {
+            StartCoroutine("ToPos1");
+            _started = true;
+        }
     }
 
     IEnumerator ToPos1()
