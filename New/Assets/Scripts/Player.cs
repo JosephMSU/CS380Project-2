@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody rBody;
     private MeshCollider mesh;
-    private animator anim;
+    //private Animator anim;
 
     [SerializeField]
     private float speed = 5f;
@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     private Text _healthLeft;
 
     private bool left = false;
+    private bool hitWall = false;
     private float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
                    // (remove comment before release)
 
@@ -110,10 +111,14 @@ public class Player : MonoBehaviour
         {
             jump();
         }
+        HitWall();
+        if(!hitWall)
+        {
+            Vector3 pos = transform.position;
+            pos.x += (horizontal * Time.deltaTime * speed);
+            transform.position = pos;
+        }
 
-        Vector3 pos = transform.position;
-        pos.x += (horizontal * Time.deltaTime * speed);
-        transform.position = pos;
         
     }
 
@@ -182,11 +187,45 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void HitWall()
+    {
+        Vector3 position1 = new Vector3(this.transform.position.x, this.transform.position.y + .5f, this.transform.position.z);
+
+        RaycastHit hitSideF;
+        Ray raySideF = new Ray(position1, transform.forward);
+
+        if (Physics.Raycast(raySideF, out hitSideF))
+        {
+            if (hitSideF.transform.gameObject.tag == "ground")
+            {
+                if (hitSideF.distance <= 1)
+                {
+                    hitWall = true;
+                    Debug.Log(hitSideF.distance);
+                }
+                else
+                {
+                    hitWall = false;
+                    //Debug.Log("Wasn't close enough");
+                }
+
+            }
+            else
+            {
+                hitWall = false;
+                //Debug.Log("Didn't hit ground.");
+            }
+
+        }
+    }
+
     public bool IsGrounded()
     {
-        bool grounded = false;
-        RaycastHit hit1;
         Vector3 position1 = new Vector3(this.transform.position.x, this.transform.position.y + .5f, this.transform.position.z);
+        bool grounded = false;
+
+        RaycastHit hit1;
+        
         Ray ray1 = new Ray(position1, (this.transform.up * -1));
         Vector3 position2 = new Vector3(this.transform.position.x - .4f, this.transform.position.y+.5f, this.transform.position.z);
         Vector3 position3 = new Vector3(this.transform.position.x + .4f, this.transform.position.y+.5f, this.transform.position.z);
@@ -235,6 +274,8 @@ public class Player : MonoBehaviour
         {
             Debug.Log("Didn't hit");
         }
+
+
 
         /*float hitDistance1 = hit1.distance;
         float hitDistance2 = hit2.distance;
