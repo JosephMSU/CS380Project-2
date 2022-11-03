@@ -24,6 +24,7 @@ public class Player : MonoBehaviour
 
     private Rigidbody rBody;
     private MeshCollider mesh;
+    private animator anim;
 
     [SerializeField]
     private float speed = 5f;
@@ -113,6 +114,7 @@ public class Player : MonoBehaviour
         Vector3 pos = transform.position;
         pos.x += (horizontal * Time.deltaTime * speed);
         transform.position = pos;
+        
     }
 
     // The player takes damage (added to interface with Enemy class.  I wanted to make it possible for
