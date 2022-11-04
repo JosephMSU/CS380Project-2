@@ -112,7 +112,7 @@ public class MainMenu : MonoBehaviour
     public void LevelButtonHit(int level)
     {
         // \/ \/ TEMPORARY \/ \/
-        if (level != 1) return;
+        if (level == 3) return;
         // \/ /\ TEMPORARY /\ /\
 
         // load the next scene

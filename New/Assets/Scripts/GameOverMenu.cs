@@ -37,10 +37,13 @@ public class GameOverMenu : MonoBehaviour
 
         if (_nextLevel != null) // win screen
         {
-            if (SceneManager.GetActiveScene().buildIndex == 3)
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            if (sceneIndex == 3)
                 _nextLevel.interactable = false;
+            else if (PlayerPrefs.GetInt("level") == sceneIndex)
+                PlayerPrefs.SetInt("level", sceneIndex + 1);
 
-            if (win)
+            if (win) // if the win screen has already appeared before
             {
                 _info.text = _infoText;
                 return;
@@ -144,6 +147,6 @@ public class GameOverMenu : MonoBehaviour
 
         // go to the next level
         Scene scene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(scene.buildIndex + 1);
+        SceneManager.LoadScene(scene.buildIndex + 1);
     }
 }

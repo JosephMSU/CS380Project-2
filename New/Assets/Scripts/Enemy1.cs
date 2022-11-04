@@ -39,8 +39,8 @@ public class Enemy1 : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        float maxMovDist = cam.transform.position.x + cam.orthographicSize + 4;
-        float minMovDist = cam.transform.position.x - cam.orthographicSize - 4;
+        float maxMovDist = _hero.transform.position.x + cam.orthographicSize + 4.8f;
+        float minMovDist = _hero.transform.position.x - cam.orthographicSize - 4.8f;
 
         // move the zombie, if it should be moved.
         if (move && pos.x > minMovDist && pos.x < maxMovDist)
