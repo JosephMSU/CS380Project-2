@@ -2378,6 +2378,8 @@ MonoBehaviour:
   _startOffset: 16
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 1
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &801215893
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2767,7 +2769,7 @@ MonoBehaviour:
   _yOffset: 4.5
   _zOffset: 10
   _leftBound: -10
-  _rightBound: 220
+  _rightBound: 209
   _interpolateAmt: 0.2
 --- !u!1 &993471231
 GameObject:
@@ -2931,6 +2933,8 @@ MonoBehaviour:
   _startOffset: 12
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 1
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &1000131225
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2993,6 +2997,85 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000131222}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1003043681
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1003043682}
+  - component: {fileID: 1003043684}
+  - component: {fileID: 1003043683}
+  m_Layer: 5
+  m_Name: reloadingText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1003043682
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003043681}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1845229923}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -130, y: 19}
+  m_SizeDelta: {x: 200, y: 50}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1003043683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003043681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 3
+    m_MaxSize: 40
+    m_Alignment: 4
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Reloading gun
+--- !u!222 &1003043684
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1003043681}
+  m_CullTransparentMesh: 1
 --- !u!1 &1016446160
 GameObject:
   m_ObjectHideFlags: 0
@@ -3314,6 +3397,8 @@ MonoBehaviour:
   _startOffset: 12
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 0
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &1038491760
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3523,6 +3608,8 @@ MonoBehaviour:
   _startOffset: 12
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 0
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &1305001637
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3952,6 +4039,8 @@ MonoBehaviour:
   _startOffset: 13
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 0
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &1370484156
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4294,8 +4383,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1429496798}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 187.83, y: 12.4, z: 0}
-  m_LocalScale: {x: 7, y: 2, z: 2}
+  m_LocalPosition: {x: 194.7, y: 12.4, z: 0}
+  m_LocalScale: {x: 20, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 266715047}
   m_RootOrder: 34
@@ -5053,6 +5142,8 @@ MonoBehaviour:
   _startOffset: 12
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 0
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &1666227381
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6378,6 +6469,7 @@ RectTransform:
   - {fileID: 648016022}
   - {fileID: 1921809312}
   - {fileID: 1016446161}
+  - {fileID: 1003043682}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7006,6 +7098,8 @@ MonoBehaviour:
   _startOffset: 12
   _overrideEasyDifficultySlowDown: 0
   _overrideHardDifficultySpeedUp: 0
+  _goBackToPos1: 1
+  stickOthers: 1
 --- !u!65 &2042899569
 BoxCollider:
   m_ObjectHideFlags: 0

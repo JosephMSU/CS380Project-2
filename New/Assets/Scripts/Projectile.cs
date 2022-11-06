@@ -48,6 +48,7 @@ public class Projectile : MonoBehaviour
     {
         if (other.gameObject.tag == "zombie")
         {
+            other.gameObject.GetComponent<Enemy1>().hitByPlayer = true;
             other.gameObject.GetComponent<Enemy1>().TakeDamage(_dmgAmt);
         }
 

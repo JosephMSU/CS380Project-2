@@ -27,6 +27,10 @@ public class MovingPlaform : MonoBehaviour
     private bool _overrideEasyDifficultySlowDown = false;
     [SerializeField]
     private bool _overrideHardDifficultySpeedUp = false;
+    [SerializeField]
+    private bool _goBackToPos1 = true;
+    [SerializeField]
+    private bool stickOthers = true;
 
     private bool _toPos1;
     private bool _started;
@@ -75,12 +79,15 @@ public class MovingPlaform : MonoBehaviour
             yield return null;
         }
 
-        StartCoroutine("ToPos1");
+        if(_goBackToPos1)
+            StartCoroutine("ToPos1");
     }
 
     void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.tag == "Player" || other.gameObject.tag == "zombie")
+        if (!stickOthers)
+            return;
+        else if (other.gameObject.tag == "Player" || other.gameObject.tag == "zombie")
         {
             if (other.gameObject.tag == "Player" && other.gameObject.GetComponent<Player>().IsGrounded() == false)
                 return;

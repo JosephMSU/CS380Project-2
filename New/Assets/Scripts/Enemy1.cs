@@ -15,6 +15,8 @@ using UnityEngine;
 
 public class Enemy1 : MonoBehaviour
 {
+    public bool hitByPlayer = false;
+
     [SerializeField]
     private float _speed = 2.5f;
     [SerializeField]
@@ -25,6 +27,8 @@ public class Enemy1 : MonoBehaviour
     private int _health = 1;
     [SerializeField]
     private Camera cam;
+    [SerializeField]
+    private float moveOffset = 4.8f;
 
     private float _dir = 0;
     private GameObject _hero;
@@ -39,8 +43,8 @@ public class Enemy1 : MonoBehaviour
     void Update()
     {
         Vector3 pos = transform.position;
-        float maxMovDist = _hero.transform.position.x + cam.orthographicSize + 4.8f;
-        float minMovDist = _hero.transform.position.x - cam.orthographicSize - 4.8f;
+        float maxMovDist = _hero.transform.position.x + cam.orthographicSize + moveOffset;
+        float minMovDist = _hero.transform.position.x - cam.orthographicSize - moveOffset;
 
         // move the zombie, if it should be moved.
         if (move && pos.x > minMovDist && pos.x < maxMovDist)
@@ -84,10 +88,15 @@ public class Enemy1 : MonoBehaviour
     public void TakeDamage(int amtOfDmg)
     {
         _health -= amtOfDmg;
+
         if (_health <= 0)
         {
-            cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
+            if (hitByPlayer)
+                cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
+
             Destroy(this.gameObject);
         }
+        else
+            hitByPlayer = false;
     }
 }

@@ -45,8 +45,11 @@ public class Player : MonoBehaviour
     private GameObject Projectile;
     [SerializeField]
     private Text _healthLeft;
+    [SerializeField]
+    private Text _reloadTxt;
 
     private bool left = false;
+    private bool reloading = false;
     private bool hitWall = false;
     private float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
                    // (remove comment before release)
@@ -103,8 +106,10 @@ public class Player : MonoBehaviour
             left = true;
             transform.rotation = Quaternion.Euler(0, -90, 0);
         }
-        if(Input.GetKeyDown(KeyCode.Space))
+        if(!reloading && Input.GetKeyDown(KeyCode.Space))
         {
+            reloading = true;
+            StartCoroutine("Reload");
             shoot();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
@@ -117,9 +122,7 @@ public class Player : MonoBehaviour
             Vector3 pos = transform.position;
             pos.x += (horizontal * Time.deltaTime * speed);
             transform.position = pos;
-        }
-
-        
+        } 
     }
 
     // The player takes damage (added to interface with Enemy class.  I wanted to make it possible for
@@ -196,7 +199,7 @@ public class Player : MonoBehaviour
 
         if (Physics.Raycast(raySideF, out hitSideF))
         {
-            if (hitSideF.transform.gameObject.tag == "ground")
+            if (hitSideF.transform.gameObject.tag == "ground" && hitSideF.transform.rotation.z == 0)
             {
                 if (hitSideF.distance <= 1)
                 {
@@ -283,5 +286,12 @@ public class Player : MonoBehaviour
         Debug.Log(hitDistance1);*/
         return grounded;
         //return (hitDistance1 == 0 || hitDistance2 == 0 || hitDistance3 == 0);
+    }
+
+    IEnumerator Reload()
+    {
+        // wait 2 seconds before player can shoot again
+        yield return new WaitForSeconds(2);
+        reloading = true;
     }
 }
