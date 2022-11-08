@@ -17,6 +17,9 @@ public class Player : MonoBehaviour
 {
     // Added for interfacing with the enemy script. Feel free to change the name or
     // suggest a different method.  - Jason (remove comment before release)
+
+    [HideInInspector]
+    public bool doNotMove = false;
     [HideInInspector]
     public static bool invincible;
     [HideInInspector]
@@ -40,19 +43,20 @@ public class Player : MonoBehaviour
     private float jumpSpeed = 10f;
     [SerializeField]
     private int health = 10;
+    [SerializeField]
+    private float reloadTime = 1.5f;
 
     [SerializeField]
     private GameObject Projectile;
     [SerializeField]
     private Text _healthLeft;
     [SerializeField]
-    private Text _reloadTxt;
+    private GameObject _reloadTxt;
 
     private bool left = false;
     private bool reloading = false;
     private bool hitWall = false;
-    private float dmgMult; // Damage multiplier, changes damage taken from enemies based on difficulty level. - Jason
-                   // (remove comment before release)
+    private float dmgMult;
 
     public int GetHealth()
     {
@@ -78,7 +82,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Time.timeScale == 0)
+        if (Time.timeScale == 0 || doNotMove)
             return;
 
         if (transform.position.y < _minimumY)
@@ -125,11 +129,6 @@ public class Player : MonoBehaviour
         } 
     }
 
-    // The player takes damage (added to interface with Enemy class.  I wanted to make it possible for
-    // different enemys to give the player different amounts of damage if we decide to do so, and wanted to
-    // make sure you are aware of it by adding this.  Feel free to change the name of the function, and I will
-    // update the Enemy script to match, or you can suggest a different approach.)  -Jason
-    // (remove comment before release)
     public void TakeDamage(int dmgAmt)
     {
         StartCoroutine("TemporaryInvincibility");
@@ -291,7 +290,11 @@ public class Player : MonoBehaviour
     IEnumerator Reload()
     {
         // wait 2 seconds before player can shoot again
-        yield return new WaitForSeconds(2);
-        reloading = true;
+        _reloadTxt.SetActive(true);
+
+        yield return new WaitForSeconds(reloadTime);
+
+        reloading = false;
+        _reloadTxt.SetActive(false);
     }
 }

@@ -39,7 +39,7 @@ public class DamagingObsacle : MonoBehaviour
         {
             // damage the zombie
             print("Collided With Enemy");
-            other.gameObject.GetComponent<Enemy1>().TakeDamage(_dmgAmt);
+            other.gameObject.GetComponent<Zombie>().TakeDamage(_dmgAmt);
         }
     }
 }

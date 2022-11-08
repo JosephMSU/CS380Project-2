@@ -31,7 +31,9 @@ public class FollowCam : MonoBehaviour
 
     private Vector3 _camPos;
     private Vector3 _oldPos;
-    private bool _follow = true;
+
+    [HideInInspector]
+    public bool follow = true;
 
     // Start is called before the first frame update
     void Start()
@@ -48,7 +50,7 @@ public class FollowCam : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!_follow)
+        if (!follow)
             return;
 
         // set the camera's new position
@@ -70,5 +72,42 @@ public class FollowCam : MonoBehaviour
 
         // set the camera's position
         transform.position = _camPos;
+    }
+
+    private float _zoomSpd;
+    public void ZoomBackToPlayer(float speed)
+    {
+        _zoomSpd = speed;
+        StartCoroutine("ZoomToPlayer");
+    }
+
+    IEnumerator ZoomToPlayer()
+    {
+        // set the camera's new position
+        Vector3 heroPos = _hero.transform.position;
+        Vector3 newPos;
+        newPos.x = heroPos.x + _xOffset;
+        newPos.y = heroPos.y + _yOffset;
+        newPos.z = -(_zOffset);
+
+        while(transform.position.y != newPos.y ||
+              transform.position.x != newPos.x ||
+              GetComponent<Camera>().orthographicSize > 6)
+        {
+            if (GetComponent<Camera>().orthographicSize > 6)
+                GetComponent<Camera>().orthographicSize -= _zoomSpd * 0.275f * Time.deltaTime;
+            else
+                GetComponent<Camera>().orthographicSize = 6;
+
+            Vector3 pos = Vector3.MoveTowards(transform.position, newPos, _zoomSpd * Time.deltaTime);
+
+            transform.position = pos;
+
+            yield return null;
+        }
+        _oldPos = newPos;
+        _camPos = newPos;
+        follow = true;
+        _hero.GetComponent<Player>().doNotMove = false;
     }
 }

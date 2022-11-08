@@ -47,6 +47,7 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BossFight.fightStarted = false;
         GameOverMenu.gameOver = false;
         Player.invincible = false;
         Time.timeScale = 1;
@@ -57,7 +58,6 @@ public class Game : MonoBehaviour
         _timeLeft.text = "Time Left: <b>" + Mathf.Round(timer) + "</b>";
     }
 
-    /* 
     void OnApplicationFocus(bool focus)
     {
         if (!focus && !paused)
@@ -67,7 +67,6 @@ public class Game : MonoBehaviour
             Instantiate(_pausePrefab);
         }
     }
-    */
 
     public void UpdateScore(int addScore)
     {

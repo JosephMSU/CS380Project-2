@@ -1,10 +1,9 @@
 /*
- * FollowCam.cs
+ * MovingPlatform.cs
  * Main Author:  Jason
  * Other Authors: 
  * 
- * Controls the movement of moving platforms.  Assumes pos1's x position is either to the
- * left of or the same as pos2's x position.
+ * Controls the movement of moving platforms.  Moves the platform between _pos1 and _pos2.
  * 
  * This script is attached to moving platforms.
  */
@@ -13,8 +12,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MovingPlaform : MonoBehaviour
+public class MovingPlatform : MonoBehaviour
 {
+    [HideInInspector]
+    public bool move = true;
+
     [SerializeField]
     private float _speed = 4f;
     [SerializeField]
@@ -63,7 +65,8 @@ public class MovingPlaform : MonoBehaviour
         _toPos1 = true;
         while (transform.localPosition != _pos1)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _pos1, _speed * Time.deltaTime);
+            if (move)
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, _pos1, _speed * Time.deltaTime);
             yield return null;
         }
 
@@ -75,7 +78,8 @@ public class MovingPlaform : MonoBehaviour
         _toPos1 = false;
         while (transform.localPosition != _pos2)
         {
-            transform.localPosition = Vector3.MoveTowards(transform.localPosition, _pos2, _speed * Time.deltaTime);
+            if (move)
+                transform.localPosition = Vector3.MoveTowards(transform.localPosition, _pos2, _speed * Time.deltaTime);
             yield return null;
         }
 

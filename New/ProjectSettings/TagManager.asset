@@ -8,6 +8,8 @@ TagManager:
   - ground
   - zombie
   - winArea
+  - bossGround
+  - boss
   layers:
   - Default
   - TransparentFX
@@ -17,8 +19,8 @@ TagManager:
   - UI
   - Projectile
   - Player
-  - 
-  - 
+  - bossGround
+  - boss
   - 
   - 
   - 

@@ -37,6 +37,9 @@ public class Projectile : MonoBehaviour
         pos.x += (dir * Time.deltaTime * _speed);
         transform.position = pos;
 
+        if (BossFight.fightStarted)
+            return;
+
         // destroy if outside of camera
         float maxDist = cam.transform.position.x + cam.orthographicSize + 4;
         float minDist = cam.transform.position.x - cam.orthographicSize - 4;
@@ -46,10 +49,13 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "zombie")
+        if (other.gameObject.tag == "Player")
+            return;
+
+        if (other.gameObject.tag == "zombie" || other.gameObject.tag == "boss")
         {
-            other.gameObject.GetComponent<Enemy1>().hitByPlayer = true;
-            other.gameObject.GetComponent<Enemy1>().TakeDamage(_dmgAmt);
+            other.gameObject.GetComponent<Zombie>().hitByPlayer = true;
+            other.gameObject.GetComponent<Zombie>().TakeDamage(_dmgAmt);
         }
 
         Destroy(this.gameObject);

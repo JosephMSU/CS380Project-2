@@ -37,6 +37,7 @@ public class MainMenu : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        BossFight.fightStarted = false;
         GameOverMenu.gameOver = false;
         Time.timeScale = 1;
         StartCoroutine("HighScoreText");
@@ -111,10 +112,6 @@ public class MainMenu : MonoBehaviour
 
     public void LevelButtonHit(int level)
     {
-        // \/ \/ TEMPORARY \/ \/
-        if (level == 3) return;
-        // \/ /\ TEMPORARY /\ /\
-
         // load the next scene
         SceneManager.LoadScene(level);
     }

@@ -1,5 +1,5 @@
 /*
- * Enemy1.cs (to be renamed)
+ * Zombie.cs
  * Main Author:  Jason
  * Other Authors: 
  * 
@@ -13,7 +13,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy1 : MonoBehaviour
+public class Zombie : MonoBehaviour
 {
     public bool hitByPlayer = false;
 
@@ -26,28 +26,35 @@ public class Enemy1 : MonoBehaviour
     [SerializeField]
     private int _health = 1;
     [SerializeField]
-    private Camera cam;
+    private float _moveOffset = 4.8f;
     [SerializeField]
-    private float moveOffset = 4.8f;
+    private bool _boss = false;
 
     private float _dir = 0;
     private GameObject _hero;
+    private Camera _cam;
 
     public static bool move = true;
 
+    // Start is called before the first frame update
     void Start()
     {
         _hero = GameObject.FindWithTag("Player");
+        _cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
     }
 
     void Update()
     {
+        // If this is the boss, and the boss fight hasn't started, return.
+        if (_boss && !BossFight.fightStarted)
+            return;
+
         Vector3 pos = transform.position;
-        float maxMovDist = _hero.transform.position.x + cam.orthographicSize + moveOffset;
-        float minMovDist = _hero.transform.position.x - cam.orthographicSize - moveOffset;
+        float maxMovDist = _hero.transform.position.x + _cam.orthographicSize + _moveOffset;
+        float minMovDist = _hero.transform.position.x - _cam.orthographicSize - _moveOffset;
 
         // move the zombie, if it should be moved.
-        if (move && pos.x > minMovDist && pos.x < maxMovDist)
+        if (_boss || (move && pos.x > minMovDist && pos.x < maxMovDist))
         {
 
             // Get the horizontal distance from the player
@@ -88,11 +95,13 @@ public class Enemy1 : MonoBehaviour
     public void TakeDamage(int amtOfDmg)
     {
         _health -= amtOfDmg;
+        if (_boss)
+            _cam.gameObject.GetComponent<BossFight>().BossHit();
 
         if (_health <= 0)
         {
             if (hitByPlayer)
-                cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
+                _cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
 
             Destroy(this.gameObject);
         }
