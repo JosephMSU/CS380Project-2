@@ -19,7 +19,7 @@ public class FollowCam : MonoBehaviour
     [SerializeField]
     private float _xOffset = 1.7f;
     [SerializeField]
-    private float _yOffset = 1.5f;
+    private float _yOffset = 1f;
     [SerializeField]
     private float _zOffset = 10;
     [SerializeField]
