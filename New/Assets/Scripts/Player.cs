@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
 
         _healthLeft.text = "Health:  <b>" + health + "</b>";
 
+        myAnim = GetComponent<Animator>();
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
         dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
@@ -98,6 +99,7 @@ public class Player : MonoBehaviour
         Debug.DrawRay(transform.position, down, Color.green);
         Debug.DrawRay(position4, down, Color.red);
         Debug.DrawRay(position5, down, Color.blue);*/
+        float y1 = transform.position.y;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if (horizontal > 0)
@@ -203,7 +205,7 @@ public class Player : MonoBehaviour
                 if (hitSideF.distance <= 1)
                 {
                     hitWall = true;
-                    Debug.Log(hitSideF.distance);
+                    //Debug.Log(hitSideF.distance);
                 }
                 else
                 {
@@ -226,47 +228,56 @@ public class Player : MonoBehaviour
         Vector3 position1 = new Vector3(this.transform.position.x, this.transform.position.y + .5f, this.transform.position.z);
         bool grounded = false;
 
-        RaycastHit hit1;
+        //RaycastHit hit1;
         
         Ray ray1 = new Ray(position1, (this.transform.up * -1));
         Vector3 position2 = new Vector3(this.transform.position.x - .4f, this.transform.position.y+.5f, this.transform.position.z);
         Vector3 position3 = new Vector3(this.transform.position.x + .4f, this.transform.position.y+.5f, this.transform.position.z);
-        RaycastHit hit2;
+        //RaycastHit hit2;
         Ray ray2 = new Ray(this.transform.position, (this.transform.up * -1));
-        RaycastHit hit3;
+        //RaycastHit hit3;
         Ray ray3 = new Ray(this.transform.position, (this.transform.up * -1));
+        Ray ray4 = new Ray(position1, transform.up);
+        RaycastHit hit;
+        if(Physics.Raycast(ray4,out hit))
+        {
+            if(hit.transform.tag == "ground")
+            {
+
+            }
+        }
         /*Physics.Raycast(ray2, out hit2);
         Physics.Raycast(ray3, out hit3);
         Physics.Raycast(ray1, out hit1);
         Debug.DrawRay(position2, this.transform.up * -1, Color.green);*/
-        if(Physics.Raycast(ray1, out hit1))
+        if(Physics.Raycast(ray1, out hit))
         {
-            if(hit1.transform.tag =="ground")
+            if(hit.transform.tag =="ground")
             {
-                Debug.Log("Hit the ground");
-                Debug.Log(hit1.distance);
-                if (hit1.distance <= .7)
+                /*Debug.Log("Hit the ground");
+                Debug.Log(hit.distance);*/
+                if (hit.distance <= .5)
                 {
                     grounded = true;
-                    Debug.Log("Distance = 0");
+                    //Debug.Log(hit.distance);
                 }
             }
         }
-        else if(Physics.Raycast(ray2, out hit2))
+        else if(Physics.Raycast(ray2, out hit))
         {
-            if(hit2.transform.gameObject.tag == "ground")
+            if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit2.distance <= .7)
+                if(hit.distance <= .5)
                 {
                     grounded = true;
                 }
             }
         }
-        else if(Physics.Raycast(ray3, out hit3))
+        else if(Physics.Raycast(ray3, out hit))
         {
-            if(hit3.transform.gameObject.tag == "ground")
+            if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit3.distance <= .7)
+                if(hit.distance <= .5)
                 {
                     grounded = true;
                 }

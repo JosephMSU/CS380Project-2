@@ -32,13 +32,13 @@ public class DamagingObsacle : MonoBehaviour
         if (other.gameObject == _hero && !Player.invincible)
         {
             // damage the player
-            print("Collided With Hero");
+            Debug.Log("Collided With Hero");
             _hero.GetComponent<Player>().TakeDamage(_dmgAmt);
         }
         else if (other.gameObject.tag == "zombie" && _damagesZombies)
         {
             // damage the zombie
-            print("Collided With Enemy");
+            Debug.Log("Collided With Enemy");
             other.gameObject.GetComponent<Zombie>().TakeDamage(_dmgAmt);
         }
     }
