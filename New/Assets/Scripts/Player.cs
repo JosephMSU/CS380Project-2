@@ -379,9 +379,11 @@ public class Player : MonoBehaviour
     {
         // wait 2 seconds before player can shoot again
         _reloadTxt.SetActive(true);
+        myAnim.SetBool("Shoot", true);
 
         yield return new WaitForSeconds(reloadTime);
 
+        myAnim.SetBool("Shoot", false);
         reloading = false;
         _reloadTxt.SetActive(false);
     }
