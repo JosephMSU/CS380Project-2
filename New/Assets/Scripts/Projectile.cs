@@ -1,11 +1,11 @@
 /*
- * Projectile.cs
- * Main Author:  Jason
- * Other Authors:  
+ * Projectile.cs 
  * 
- * Manages projectiles shot by the player.
+ * Manages projectiles shot by the player. Projectiles damage any enemies they touch.
+ * This script will also destroy projectiles that hit the ground or an enemy, or travels
+ * off the screen.
  *     
- * This script is attached all player projectiles.
+ * This script is attached all player projectiles. 
  */
 
 using System.Collections;

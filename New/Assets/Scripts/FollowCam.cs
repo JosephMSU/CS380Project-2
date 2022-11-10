@@ -1,11 +1,11 @@
 /*
  * FollowCam.cs
- * Main Author:  Jason
- * Other Authors: 
  * 
- * Controls the camera, by making it follow the player.
+ * This script controls the camera by making it follow the player, except during the boss fight
+ * (when control over the camera is passed to the BossFight script). It also zooms the camera
+ * back in on the player after the boss fight, to prepare it to follow the player again.
  * 
- * This script is attached to the cameras in the level scenes.
+ * This script is attached to the cameras in all  the level scenes.
  */
 
 using System.Collections;

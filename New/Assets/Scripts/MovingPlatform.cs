@@ -1,11 +1,14 @@
 /*
- * MovingPlatform.cs
- * Main Author:  Jason
- * Other Authors: 
+ * MovingPlatform.cs 
  * 
- * Controls the movement of moving platforms.  Moves the platform between _pos1 and _pos2.
+ * This script controls the movement of moving platforms.  It moves the platform between 
+ * _pos1 and _pos2, and (optionally), changes the platform's speed based on the selected
+ * difficulty level.  The platform can either stop after reaching _pos2, or go back to
+ * _pos1. It also makes sure to move the player and/or enemies with the platform if they 
+ * are standing on it (this feature can be turned off, but this should only be done on 
+ * platforms that only move up and/or down).
  * 
- * This script is attached to moving platforms.
+ * This script is attached to all moving platforms.
  */
 
 using System.Collections;

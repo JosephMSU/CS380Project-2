@@ -1,3 +1,15 @@
+/*
+ * BossFight.cs
+ * 
+ * Controls the boss fight. What the player reaches the boss fight area in level 3, this
+ * script prepares the boss fight area and the camera for the bossfight, and makes the 
+ * boss's health bar to appear.  After the boss fight, it makes the boss's health bar
+ * dissapear, returns the camera's control back to the FollowCam script, and allows the
+ * player to get to the goal.
+ * 
+ * This script is attached to the Main Camera in level 3.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -139,6 +151,7 @@ public class BossFight : MonoBehaviour
 
     IEnumerator Fight()
     {
+        // Before the fight
         foreach (MovingPlatform plat in platforms)
         {
             plat.move = true;
@@ -149,16 +162,18 @@ public class BossFight : MonoBehaviour
 
         fightStarted = true;
 
+        // During the fight
         while (_boss != null)
         {
             yield return null;
         }
 
+        // After the boss is defeated
         _hero.GetComponent<Player>().doNotMove = true;
 
         foreach (MovingPlatform plat in platforms)
         {
-            plat.move = false;
+            Destroy(plat.gameObject);
         }
 
         StartCoroutine("ShakeCamera");

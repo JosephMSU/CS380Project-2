@@ -1,10 +1,8 @@
 /*
  * Zombie.cs
- * Main Author:  Jason
- * Other Authors: 
  * 
  * Controls the main enemies, zombies; which walk toward the player, and damage the player 
- * if touched.
+ * if touched. The boss enemy also uses this script.
  * 
  * This script is attatched to all zombies.
  */
@@ -12,6 +10,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.Random;
 
 public class Zombie : MonoBehaviour
 {
@@ -19,6 +18,8 @@ public class Zombie : MonoBehaviour
 
     [SerializeField]
     private float _speed = 2.5f;
+    [SerializeField]
+    private float _minimumY = -10f;
     [SerializeField]
     private int _killScore = 1;
     [SerializeField]
@@ -29,10 +30,15 @@ public class Zombie : MonoBehaviour
     private float _moveOffset = 4.8f;
     [SerializeField]
     private bool _boss = false;
+    [SerializeField]
+    private AudioSource _moanSound;
+    [SerializeField]
+    private AudioSource _dieSound;
 
     private float _dir = 0;
     private GameObject _hero;
     private Camera _cam;
+    private bool dead = false;
 
     public static bool move = true;
 
@@ -41,13 +47,43 @@ public class Zombie : MonoBehaviour
     {
         _hero = GameObject.FindWithTag("Player");
         _cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
+        StartCoroutine("Moan");
+    }
+
+    IEnumerator Moan()
+    {
+        while(!dead)
+        {
+            Vector3 pos = transform.position;
+            float maxMovDist = _hero.transform.position.x + _cam.orthographicSize + _moveOffset;
+            float minMovDist = _hero.transform.position.x - _cam.orthographicSize - _moveOffset;
+            if (_boss || (move && pos.x > minMovDist && pos.x < maxMovDist))
+            {
+                if (!(_boss && !BossFight.fightStarted))
+                {
+                    yield return new WaitForSeconds(Range(0.1f, 0.3f));
+                    if(!dead)
+                        _moanSound.Play();
+                    yield return new WaitForSeconds(Range(1.5f, 4));
+                }
+                else
+                    yield return null;
+            }
+            else
+                yield return null;
+        }
     }
 
     void Update()
     {
         // If this is the boss, and the boss fight hasn't started, return.
-        if (_boss && !BossFight.fightStarted)
+        if (dead || (_boss && !BossFight.fightStarted))
             return;
+
+        if (transform.position.y < _minimumY)
+        {
+            Destroy(this.gameObject);
+        }
 
         Vector3 pos = transform.position;
         float maxMovDist = _hero.transform.position.x + _cam.orthographicSize + _moveOffset;
@@ -56,7 +92,6 @@ public class Zombie : MonoBehaviour
         // move the zombie, if it should be moved.
         if (_boss || (move && pos.x > minMovDist && pos.x < maxMovDist))
         {
-
             // Get the horizontal distance from the player
             float horizontal = pos.x - _hero.transform.position.x;
 
@@ -100,12 +135,27 @@ public class Zombie : MonoBehaviour
 
         if (_health <= 0)
         {
+            dead = true;
+            _dieSound.Play();
             if (hitByPlayer)
                 _cam.gameObject.GetComponent<Game>().UpdateScore(_killScore);
 
-            Destroy(this.gameObject);
+            StartCoroutine("Die");
         }
         else
             hitByPlayer = false;
+    }
+
+    // Keep the zombie hidden (but still existant) long enough to play the death sound,
+    // then destroy it.
+    IEnumerator Die()
+    {
+        Vector3 pos = transform.position;
+        pos.y = -100;
+        transform.position = pos;
+
+        yield return new WaitForSeconds(2f);
+
+        Destroy(this.gameObject);
     }
 }
