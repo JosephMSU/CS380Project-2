@@ -333,7 +333,7 @@ public class Player : MonoBehaviour
             {
                 /*Debug.Log("Hit the ground");
                 Debug.Log(hit.distance);*/
-                if (hit.distance <= .5)
+                if (hit.distance <= .7)
                 {
                     grounded = true;
                     //Debug.Log(hit.distance);
@@ -344,7 +344,7 @@ public class Player : MonoBehaviour
         {
             if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit.distance <= .5)
+                if(hit.distance <= .7)
                 {
                     grounded = true;
                 }
@@ -354,7 +354,7 @@ public class Player : MonoBehaviour
         {
             if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit.distance <= .5)
+                if(hit.distance <= .7)
                 {
                     grounded = true;
                 }
