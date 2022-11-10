@@ -1,10 +1,11 @@
 /*
  * GameOverMenu.cs
- * Main Author:  Jason
- * Other Authors:  
  * 
  * Manages the win and loose menus (collectively, the game over menus), which share
- * alot of similar functions.
+ * alot of similar functions. It allows the player to go to the next level (if it is
+ * a win screen), retry the current levle (if it is a loose screen), access the
+ * options menu, go to the main menu, or quit the game. It also tells the player their
+ * final score (for a win screen), or how they lost (for a loose screen). 
  *     
  * This script is attached to the loose and win menus.
  */
@@ -19,11 +20,17 @@ public class GameOverMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject _optionsPrefab;
+    [SerializeField]
+    private GameObject _QuitScreenPrefab;
 
     [SerializeField]
     private Text _info;
     [SerializeField]
     private Button _nextLevel;  // null if loose menu
+    [SerializeField]
+    private AudioSource _gameOverSound;
+    [SerializeField]
+    private AudioSource _buttonClickSound;
 
     private static string _infoText;
 
@@ -32,6 +39,9 @@ public class GameOverMenu : MonoBehaviour
 
     public void Start()
     {
+        if (!gameOver) // if this is the first time the game over screen has apperared
+            _gameOverSound.Play(0);
+
         Time.timeScale = 0;
         gameOver = true;
 
@@ -95,12 +105,14 @@ public class GameOverMenu : MonoBehaviour
         }
         else // loose screen
         {
-            if (Player.infinitePit)
+            if (GameObject.FindWithTag("Player").GetComponent<Player>().GetHealth() <= 0)
+                _info.text += "health";
+            else if (Player.infinitePit)
                 _info.text = "Fell out of\nbounds.";
             else if (GameObject.FindWithTag("MainCamera").GetComponent<Game>().timer <= 0)
                 _info.text += "time";
             else
-                _info.text += "health";
+                _info.text = "ERROR";
         }
     }
 
@@ -116,6 +128,21 @@ public class GameOverMenu : MonoBehaviour
     }
 
     public void QuitButtonPushed()
+    {
+        _buttonClickSound.Play(0);
+        _buttonClickSound.time = 0.2f;
+        Instantiate(_QuitScreenPrefab);
+        StartCoroutine("Quit");
+    }
+
+    IEnumerator Quit()
+    {
+        yield return new WaitForSeconds(0.7f);
+        QuitGame();
+        Debug.Log("quit");
+    }
+
+    public void QuitGame()
     {
         Application.Quit();
     }
@@ -133,10 +160,25 @@ public class GameOverMenu : MonoBehaviour
 
     public void OptionsButtonPushed()
     {
+        // Hide the options menu so it can still play the sound, but isn't seen.
+        this.gameObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+        Vector3 pos = transform.position;
+        pos.y -= 999999;
+        transform.position = pos;
+
+        _buttonClickSound.Play(0);
+        _buttonClickSound.time = 0.2f;
+
         // show the options menu
         Instantiate(_optionsPrefab);
 
         // exit the pause menu
+        StartCoroutine("Exit");
+    }
+
+    IEnumerator Exit()
+    {
+        yield return new WaitForSeconds(.5f);
         Destroy(this.gameObject);
     }
 

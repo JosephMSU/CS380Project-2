@@ -1,14 +1,12 @@
 /*
  * Game.cs
- * Main Author:  Jason
- * Other Authors: 
  * 
- * Manages the UI, and keeps track of the score and time left.  Also pauses the game then the
- * esc key is pressed, and instantiates a loose screen when the timer reaches 0.
- * 
+ * This script anages the UI, and keeps track of the score and time left.  It also 
+ * pauses the game when the esc key is pressed, instantiates a loose screen when 
+ * the timer reaches 0.
  *     
  * This script is attached to the cameras in the level scenes (although it doesn't control the
- * cameras in any way).
+ * cameras in any way, we just needed somewhere to put it).
  */
 
 using System.Collections;
@@ -29,6 +27,10 @@ public class Game : MonoBehaviour
     private Text _highScore;
     [SerializeField]
     private Text _timeLeft;
+    [SerializeField]
+    private AudioSource _startGameSound;
+    [SerializeField]
+    private AudioSource _pauseSound;
 
     [HideInInspector]
     public bool paused = false;
@@ -47,6 +49,8 @@ public class Game : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _startGameSound.Play();
+        _startGameSound.time= 0.2f;
         BossFight.fightStarted = false;
         GameOverMenu.gameOver = false;
         Player.invincible = false;
@@ -60,11 +64,12 @@ public class Game : MonoBehaviour
 
     void OnApplicationFocus(bool focus)
     {
-        if (!focus && !paused)
+        if (!focus && !paused && !GameOverMenu.gameOver)
         {
             paused = true;
             Time.timeScale = 0;
             Instantiate(_pausePrefab);
+            _pauseSound.Play();
         }
     }
 
@@ -96,6 +101,8 @@ public class Game : MonoBehaviour
             paused = true;
             Time.timeScale = 0;
             Instantiate(_pausePrefab);
+            _pauseSound.Play();;
+            _pauseSound.time = 0.2f;
             return;
         }
 

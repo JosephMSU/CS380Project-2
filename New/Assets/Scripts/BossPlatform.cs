@@ -1,3 +1,13 @@
+/*
+ * BossPlatform.cs
+ * 
+ * This script controls a single platform right before the boss fight in level 3. After the 
+ * MovingPlatform script moves the platform, this script takes over.  It quickly rotates the 
+ * platform and moves it away, causing the player to fall to the boss area.
+ * 
+ * This script is attached to a single platform in level 3.
+ */
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

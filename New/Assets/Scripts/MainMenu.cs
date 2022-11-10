@@ -1,11 +1,10 @@
 /*
  * MainMenu.cs
- * Main Author:  Jason
- * Other Authors:
  *
  * Manages the main menu, initializes the PlayerPrefs (our means of storing
  * data between plays) if they don't exist yet, and sets the game's volume
- * to the value stored in the PlayerPrefs.
+ * to the value stored in the PlayerPrefs. It also moves the highscore texts
+ * for each level across the top of the screen in the main menu.
  *     
  * This script is attached to the MenuCanvas object in the main menu scene.
  */
@@ -22,6 +21,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject _optionsPrefab;
     [SerializeField]
+    private GameObject _QuitScreenPrefab;
+
+    [SerializeField]
     private Button _button2;
     [SerializeField]
     private Button _button3;
@@ -30,13 +32,25 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private AudioMixer _mixer;
     [SerializeField]
+    private AudioSource _buttonSound;
+    [SerializeField]
     private float _txtMovSpeed;
 
-
+    private static bool firstTime = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        if (firstTime)
+        {
+            firstTime = false;
+        }
+        else
+        {
+            _buttonSound.Play(0);
+            _buttonSound.time = 0.2f;
+        }
+
         BossFight.fightStarted = false;
         GameOverMenu.gameOver = false;
         Time.timeScale = 1;
@@ -102,10 +116,27 @@ public class MainMenu : MonoBehaviour
 
     public void OptionsButtonHit()
     {
+        _buttonSound.Play(0);
+        _buttonSound.time = 0.2f;
         Instantiate(_optionsPrefab);
     }
 
     public void QuitButtonHit()
+    {
+        _buttonSound.Play(0);
+        _buttonSound.time = 0.2f;
+        Instantiate(_QuitScreenPrefab);
+        StartCoroutine("Quit");
+    }
+
+    IEnumerator Quit()
+    {
+        yield return new WaitForSeconds(0.7f);
+        QuitGame();
+        Debug.Log("quit");
+    }
+
+    public void QuitGame()
     {
         Application.Quit();
     }

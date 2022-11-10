@@ -1,10 +1,8 @@
 /*
  * OptionsMenu.cs
- * Main Author:  Jason
- * Other Authors:  
  * 
- * Manages the options menu, and stores the selected volume and difficulty in the
- * PlayerPrefs.
+ * This script manages the options menu, and stores the selected volume and difficulty in the
+ * PlayerPrefs. It also returns to the correct menu after the player leaves the options menu.
  *     
  * This script is attached to the options menu
  */
@@ -33,6 +31,8 @@ public class OptionsMenu : MonoBehaviour
     private GameObject _WinMenuPrefab;
     [SerializeField]
     private AudioMixer _mixer;
+    [SerializeField]
+    private AudioSource _buttonClickSound;
 
     void Start()
     {
@@ -78,6 +78,16 @@ public class OptionsMenu : MonoBehaviour
 
     public void ExitButtonPushed()
     {
+        // Hide the options menu so it can still play the sound, but isn't seen.
+        this.gameObject.GetComponent<Canvas>().renderMode = RenderMode.WorldSpace;
+        Vector3 pos = transform.position;
+        pos.y -= 999999;
+        transform.position = pos;
+
+        // play sound
+        _buttonClickSound.Play(0);
+        _buttonClickSound.time = 0.2f;
+
         // show win or loose menu if game is over
         if (GameOverMenu.gameOver)
         {
@@ -91,11 +101,20 @@ public class OptionsMenu : MonoBehaviour
             Instantiate(_pauseMenuPrefab);
 
         // exit the options menu
+        StartCoroutine("Exit");
+    }
+
+    IEnumerator Exit()
+    {
+        yield return new WaitForSeconds(.5f);
         Destroy(this.gameObject);
     }
 
     public void DifficultyButtonPushed(float difficulty)
     {
+        _buttonClickSound.Play(0);
+        _buttonClickSound.time = 0.2f;
+
         // set the difficulty
         PlayerPrefs.SetFloat("difficulty", difficulty);
 

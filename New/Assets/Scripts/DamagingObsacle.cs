@@ -1,9 +1,11 @@
 /*
  * DamagingObstacle.cs
- * Main Author:  Jason
- * Other Authors: 
  * 
- * Controls non-moving obstacles that damages the player and (optionally) enemies.
+ * This script controls non-moving obstacles that damages the player and (optionally) 
+ * enemies. All obstacles in the intital release will damage both the player and the 
+ * enemies. The ability to make bstacles that damage the player, but not enemies, was 
+ * added to this script in case we want to implement it in a future update after the
+ * initial release.
  * 
  * This script is attached to some, but not all, obstacles.
  */
