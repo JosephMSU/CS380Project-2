@@ -3904,6 +3904,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1305312783}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!137 &1331504218 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+  m_PrefabInstance: {fileID: 1799345753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1345726976
 GameObject:
   m_ObjectHideFlags: 0
@@ -6258,6 +6263,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 13700000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
       propertyPath: m_SkinnedMotionVectors
       value: 0
       objectReference: {fileID: 0}
@@ -6281,6 +6290,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doNotMove: 0
+  playerRenderer: {fileID: 1331504218}
   speed: 5
   _looseScreen: {fileID: 6045262099245460136, guid: 263150e85a5f58048ad63a0010958427, type: 3}
   _winScreen: {fileID: 6045262099245460136, guid: ef32bb2579229e5449f5468400162d0e, type: 3}

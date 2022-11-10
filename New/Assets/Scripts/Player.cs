@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
 
     private Rigidbody rBody;
     private MeshCollider mesh;
-    //private Animator anim;
+    private Animator myAnim;
+    public Renderer playerRenderer;
 
     [SerializeField]
     private float speed = 5f;
@@ -57,7 +58,9 @@ public class Player : MonoBehaviour
     private bool reloading = false;
     private bool hitWall = false;
     private float dmgMult;
-
+    private float invincibilityTime = 0;
+    private float flashLength = .2f;
+    
     public int GetHealth()
     {
         return health;
@@ -78,6 +81,7 @@ public class Player : MonoBehaviour
         mesh = transform.GetComponent<MeshCollider>();
         dmgMult = PlayerPrefs.GetFloat("difficulty"); // I am using PlayerPrefs to store difficulty setting
                                                       // between plays. - Jason (remove comment before release)
+        //playerRenderer = transform.GetComponent<Renderer>();
     }
 
     // Update is called once per frame
@@ -106,11 +110,17 @@ public class Player : MonoBehaviour
         {
             left = false;
             transform.rotation = Quaternion.Euler(0, 90, 0);
+            myAnim.SetInteger("X", 1);
         }
         else if (horizontal < 0)
         {
             left = true;
             transform.rotation = Quaternion.Euler(0, -90, 0);
+            myAnim.SetInteger("X", 1);
+        }
+        else
+        {
+            myAnim.SetInteger("X", 0);
         }
         if(!reloading && Input.GetKeyDown(KeyCode.Space))
         {
@@ -129,6 +139,19 @@ public class Player : MonoBehaviour
             pos.x += (horizontal * Time.deltaTime * speed);
             transform.position = pos;
         } 
+        if(invincible)
+        {
+            invincibilityTime += Time.deltaTime;
+            if(invincibilityTime>=flashLength)
+            {
+                playerRenderer.enabled = !playerRenderer.enabled;
+                invincibilityTime = 0;
+            }
+        }
+        else if(!playerRenderer.enabled)
+        {
+            playerRenderer.enabled = true;
+        }
     }
 
     public void TakeDamage(int dmgAmt)
