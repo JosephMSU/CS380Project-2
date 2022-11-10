@@ -1,9 +1,11 @@
 /*
  * Player.cs
- * Main Author:  Joe
- * Other Authors:  Jason
  * 
- * Manages the player, and controls player movement through user input.
+ * This script manages the player, and controls player movement through user input.  It
+ * also intantiates a win screen if the player reaches the goal, or a loose screen if 
+ * the player runs out of health, is crushed, or falls in an infinie pit. It also allows
+ * the player to shoot projectiles if the gun isn't in the process of reloading 
+ * (also controlled by this script).
  *     
  * This script is attached to the player character.
  */
@@ -25,11 +27,16 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public static bool infinitePit = false;
 
-    private Rigidbody rBody;
-    private MeshCollider mesh;
-    private Animator myAnim;
     public Renderer playerRenderer;
 
+    [SerializeField]
+    private AudioSource walkSound;
+    [SerializeField]
+    private AudioSource hurtSound;
+    [SerializeField]
+    private AudioSource gunSound;
+    [SerializeField]
+    private AudioSource hitGroundSound;
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
@@ -60,7 +67,13 @@ public class Player : MonoBehaviour
     private float dmgMult;
     private float invincibilityTime = 0;
     private float flashLength = .2f;
-    
+    private Rigidbody rBody;
+    private MeshCollider mesh;
+    private Animator myAnim;
+    private bool _isWalking = false;
+    private bool _inAir = false;
+    private bool _inAirLongEnough = false;
+
     public int GetHealth()
     {
         return health;
@@ -88,7 +101,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (Time.timeScale == 0 || doNotMove)
+        {
+            walkSound.Pause();
             return;
+        }
 
         if (transform.position.y < _minimumY)
         {
@@ -106,14 +122,16 @@ public class Player : MonoBehaviour
         float y1 = transform.position.y;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        if (horizontal > 0)
+        if (horizontal > 0.01f)
         {
+            _isWalking = true;
             left = false;
             transform.rotation = Quaternion.Euler(0, 90, 0);
             myAnim.SetInteger("X", 1);
         }
-        else if (horizontal < 0)
+        else if (horizontal < -0.01)
         {
+            _isWalking = true;
             left = true;
             transform.rotation = Quaternion.Euler(0, -90, 0);
             myAnim.SetInteger("X", 1);
@@ -121,8 +139,39 @@ public class Player : MonoBehaviour
         else
         {
             myAnim.SetInteger("X", 0);
+            _isWalking = false;
         }
-        if(!reloading && Input.GetKeyDown(KeyCode.Space))
+
+        bool grounded = IsGrounded();
+
+        if (_isWalking && grounded)
+        {
+            if (!walkSound.isPlaying)
+            {
+                walkSound.Play(0);
+            }
+        }
+        else
+        {
+            walkSound.Pause();
+        }
+
+        if (grounded)
+        {
+            if (_inAir && _inAirLongEnough)
+            {
+                hitGroundSound.Play(0);
+                _inAir = false;
+            }
+            _inAirLongEnough = false;
+        }
+        else
+        {
+            _inAir = true;
+            StartCoroutine("inAirDelay");
+        }
+
+        if (!reloading && Input.GetKeyDown(KeyCode.Space))
         {
             reloading = true;
             StartCoroutine("Reload");
@@ -165,6 +214,10 @@ public class Player : MonoBehaviour
             health = 0;
             Instantiate(_looseScreen);
         }
+        else
+        {
+            hurtSound.Play(0);
+        }
 
         _healthLeft.text = "Health:  <b>" + health + "</b>";
     }
@@ -187,6 +240,7 @@ public class Player : MonoBehaviour
     public void shoot()
     {
         // set the position of the proectile
+        gunSound.Play(0);
         Vector3 projectilePos = this.transform.position;
         projectilePos.y += 2;
         int projectileDirection;
@@ -330,5 +384,11 @@ public class Player : MonoBehaviour
 
         reloading = false;
         _reloadTxt.SetActive(false);
+    }
+
+    IEnumerator inAirDelay()
+    {
+        yield return new WaitForSeconds(0.5f);
+        _inAirLongEnough = true;
     }
 }
