@@ -7776,6 +7776,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   doNotMove: 0
+  playerRenderer: {fileID: 1799345756}
   walkSound: {fileID: 652735757}
   hurtSound: {fileID: 1865173288}
   gunSound: {fileID: 748841362}
@@ -7791,6 +7792,11 @@ MonoBehaviour:
   Projectile: {fileID: 1591147209760782488, guid: 402e4a7b30e5cd44e9342894c58ca0d2, type: 3}
   _healthLeft: {fileID: 1016446162}
   _reloadTxt: {fileID: 92496666}
+--- !u!137 &1799345756 stripped
+SkinnedMeshRenderer:
+  m_CorrespondingSourceObject: {fileID: 13700000, guid: fcb334eb247ae3e488abb081c847cf09, type: 3}
+  m_PrefabInstance: {fileID: 1799345753}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &1799345757
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -26,6 +26,8 @@ public class Player : MonoBehaviour
     public static bool invincible;
     [HideInInspector]
     public static bool infinitePit = false;
+    [HideInInspector]
+    public static bool crushed = false;
 
     public Renderer playerRenderer;
 
@@ -82,6 +84,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        infinitePit = false;
         if (PlayerPrefs.GetFloat("difficulty") == 0.5f)
             health *= 2;
         else if (PlayerPrefs.GetFloat("difficulty") == 2f)
@@ -89,6 +92,7 @@ public class Player : MonoBehaviour
 
         _healthLeft.text = "Health:  <b>" + health + "</b>";
 
+        crushed = false;
         myAnim = GetComponent<Animator>();
         rBody = transform.GetComponent<Rigidbody>();
         mesh = transform.GetComponent<MeshCollider>();
@@ -100,13 +104,32 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.timeScale == 0 || doNotMove)
+        if (Time.timeScale == 0)
         {
             walkSound.Pause();
             return;
         }
 
-        if (transform.position.y < _minimumY)
+        if (invincible)
+        {
+            invincibilityTime += Time.deltaTime;
+            if (invincibilityTime >= flashLength)
+            {
+                playerRenderer.enabled = !playerRenderer.enabled;
+                invincibilityTime = 0;
+            }
+        }
+        else if (!playerRenderer.enabled)
+        {
+            playerRenderer.enabled = true;
+        }
+        if (doNotMove)
+        {
+            walkSound.Pause();
+            return;
+        }
+
+        if (transform.position.y < _minimumY && !infinitePit)
         {
             Instantiate(_looseScreen);
             infinitePit = true;
@@ -188,19 +211,6 @@ public class Player : MonoBehaviour
             pos.x += (horizontal * Time.deltaTime * speed);
             transform.position = pos;
         } 
-        if(invincible)
-        {
-            invincibilityTime += Time.deltaTime;
-            if(invincibilityTime>=flashLength)
-            {
-                playerRenderer.enabled = !playerRenderer.enabled;
-                invincibilityTime = 0;
-            }
-        }
-        else if(!playerRenderer.enabled)
-        {
-            playerRenderer.enabled = true;
-        }
     }
 
     public void TakeDamage(int dmgAmt)
@@ -225,7 +235,15 @@ public class Player : MonoBehaviour
     IEnumerator TemporaryInvincibility()
     {
         invincible = true;
-        yield return new WaitForSeconds(_invincibleTime);
+        float wait = 0;
+
+        while (wait < _invincibleTime)
+        {
+            if (Time.timeScale != 0)
+                wait += Time.deltaTime;
+            yield return null;
+        }
+
         invincible = false;
     }
 
@@ -279,7 +297,7 @@ public class Player : MonoBehaviour
         {
             if (hitSideF.transform.gameObject.tag == "ground" && hitSideF.transform.rotation.z == 0)
             {
-                if (hitSideF.distance <= 1)
+                if (hitSideF.distance <= 0.9)
                 {
                     hitWall = true;
                     //Debug.Log(hitSideF.distance);
@@ -300,7 +318,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool IsGrounded()
+    public bool IsGrounded(float hitDist = 0.7f)
     {
         Vector3 position1 = new Vector3(this.transform.position.x, this.transform.position.y + .5f, this.transform.position.z);
         bool grounded = false;
@@ -333,7 +351,7 @@ public class Player : MonoBehaviour
             {
                 /*Debug.Log("Hit the ground");
                 Debug.Log(hit.distance);*/
-                if (hit.distance <= .7)
+                if (hit.distance <= hitDist)
                 {
                     grounded = true;
                     //Debug.Log(hit.distance);
@@ -344,7 +362,7 @@ public class Player : MonoBehaviour
         {
             if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit.distance <= .7)
+                if(hit.distance <= hitDist)
                 {
                     grounded = true;
                 }
@@ -354,7 +372,7 @@ public class Player : MonoBehaviour
         {
             if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit.distance <= .7)
+                if(hit.distance <= hitDist)
                 {
                     grounded = true;
                 }

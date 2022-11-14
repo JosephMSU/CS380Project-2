@@ -10,6 +10,8 @@ TagManager:
   - winArea
   - bossGround
   - boss
+  - crushArea
+  - dontDestroyOnLoad
   layers:
   - Default
   - TransparentFX
@@ -21,7 +23,7 @@ TagManager:
   - Player
   - bossGround
   - boss
-  - 
+  - building
   - 
   - 
   - 

@@ -60,6 +60,17 @@ public class Game : MonoBehaviour
         int highScoreVal = PlayerPrefs.GetInt("highScore" + _levelNumber);
         _highScore.text = "High Score: <b>" + highScoreVal + "</b>";
         _timeLeft.text = "Time Left: <b>" + Mathf.Round(timer) + "</b>";
+        StartCoroutine("DestroyNotDestroyedOnLoad");
+    }
+
+    IEnumerator DestroyNotDestroyedOnLoad()
+    {
+        AudioSource buttonSound = GameObject.FindGameObjectWithTag("dontDestroyOnLoad").GetComponent<AudioSource>();
+
+        while (buttonSound.isPlaying)
+            yield return null;
+
+        Destroy(buttonSound.gameObject);
     }
 
     void OnApplicationFocus(bool focus)

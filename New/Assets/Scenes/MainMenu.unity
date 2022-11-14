@@ -526,7 +526,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _optionsPrefab: {fileID: 2524617002441475757, guid: bbc7c5bd125d59341a7f9ca082b01471, type: 3}
-  _QuitScreenPrefab: {fileID: 1236540474211352740, guid: abda86fabd41e584790a56b1870c4455, type: 3}
+  _quitScreenPrefab: {fileID: 1236540474211352740, guid: abda86fabd41e584790a56b1870c4455, type: 3}
+  _loadScreenPrefab: {fileID: 2608527635641053945, guid: 233e619bba24e1f459eca516a1ee7dea, type: 3}
   _button2: {fileID: 1201730888}
   _button3: {fileID: 1031411698}
   _highScores:
@@ -880,7 +881,7 @@ GameObject:
   - component: {fileID: 540581851}
   m_Layer: 0
   m_Name: ButtonClickSound
-  m_TagString: Untagged
+  m_TagString: dontDestroyOnLoad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

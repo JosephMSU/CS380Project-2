@@ -21,7 +21,9 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private GameObject _optionsPrefab;
     [SerializeField]
-    private GameObject _QuitScreenPrefab;
+    private GameObject _quitScreenPrefab;
+    [SerializeField]
+    private GameObject _loadScreenPrefab;
 
     [SerializeField]
     private Button _button2;
@@ -36,20 +38,11 @@ public class MainMenu : MonoBehaviour
     [SerializeField]
     private float _txtMovSpeed;
 
-    private static bool firstTime = true;
-
     // Start is called before the first frame update
     void Start()
     {
-        if (firstTime)
-        {
-            firstTime = false;
-        }
-        else
-        {
-            _buttonSound.Play(0);
-            _buttonSound.time = 0.2f;
-        }
+        StartCoroutine("DestroyNotDestroyedOnLoad");
+        DontDestroyOnLoad(_buttonSound);
 
         BossFight.fightStarted = false;
         GameOverMenu.gameOver = false;
@@ -96,6 +89,22 @@ public class MainMenu : MonoBehaviour
         }
     }
 
+    IEnumerator DestroyNotDestroyedOnLoad()
+    {
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("dontDestroyOnLoad"))
+        {
+            if (go.name != "ButtonClickSound")
+            {
+                AudioSource buttonSound = GameObject.FindGameObjectWithTag("dontDestroyOnLoad").GetComponent<AudioSource>();
+
+                while (buttonSound.isPlaying)
+                    yield return null;
+
+                Destroy(buttonSound.gameObject);
+            }
+        }
+    }
+
     IEnumerator HighScoreText()
     {
         while (true)
@@ -125,7 +134,7 @@ public class MainMenu : MonoBehaviour
     {
         _buttonSound.Play(0);
         _buttonSound.time = 0.2f;
-        Instantiate(_QuitScreenPrefab);
+        Instantiate(_quitScreenPrefab);
         StartCoroutine("Quit");
     }
 
@@ -143,7 +152,11 @@ public class MainMenu : MonoBehaviour
 
     public void LevelButtonHit(int level)
     {
+        _buttonSound.Play(0);
+        _buttonSound.time = 0.2f;
+
         // load the next scene
-        SceneManager.LoadScene(level);
+        Instantiate(_loadScreenPrefab);
+        SceneManager.LoadSceneAsync(level);
     }
 }

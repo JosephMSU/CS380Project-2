@@ -17,11 +17,11 @@ public class FollowCam : MonoBehaviour
     [SerializeField]
     private GameObject _hero;
     [SerializeField]
-    private float _xOffset = 1.7f;
+    private float _xOffset = 7.67f;
     [SerializeField]
-    private float _yOffset = 1f;
+    private float _yOffset = 4.88f;
     [SerializeField]
-    private float _zOffset = 10;
+    private float _zOffset = 20.08f;
     [SerializeField]
     private float _leftBound = -10;
     [SerializeField]

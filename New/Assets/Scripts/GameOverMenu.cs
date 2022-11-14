@@ -21,7 +21,11 @@ public class GameOverMenu : MonoBehaviour
     [SerializeField]
     private GameObject _optionsPrefab;
     [SerializeField]
-    private GameObject _QuitScreenPrefab;
+    private GameObject _quitScreenPrefab;
+    [SerializeField]
+    private GameObject _loadScreenPrefab;
+    [SerializeField]
+    private GameObject _loadLevelClickPrefab;
 
     [SerializeField]
     private Text _info;
@@ -119,19 +123,25 @@ public class GameOverMenu : MonoBehaviour
     public void MainMenuPushed()
     {
         Time.timeScale = 1;
-        gameOver = false;
         win = false;
         Player.infinitePit = false;
 
+        GameObject go = Instantiate(_loadLevelClickPrefab);
+        DontDestroyOnLoad(go);
+        AudioSource click = go.GetComponent<AudioSource>();
+        click.Play(0);
+        click.time = 0.2f;
+
         // go to main menu
-        SceneManager.LoadScene(0);
+        Instantiate(_loadScreenPrefab);
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void QuitButtonPushed()
     {
         _buttonClickSound.Play(0);
         _buttonClickSound.time = 0.2f;
-        Instantiate(_QuitScreenPrefab);
+        Instantiate(_quitScreenPrefab);
         StartCoroutine("Quit");
     }
 
@@ -153,9 +163,16 @@ public class GameOverMenu : MonoBehaviour
         win = false;
         Player.infinitePit = false;
 
+        GameObject go = Instantiate(_loadLevelClickPrefab);
+        DontDestroyOnLoad(go);
+        AudioSource click = go.GetComponent<AudioSource>();
+        click.Play(0);
+        click.time = 0.2f;
+
         // reload the level
+        Instantiate(_loadScreenPrefab);
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.buildIndex);
+        SceneManager.LoadSceneAsync(scene.buildIndex);
     }
 
     public void OptionsButtonPushed()
@@ -187,8 +204,15 @@ public class GameOverMenu : MonoBehaviour
         Time.timeScale = 1;
         Player.infinitePit = false;
 
+        GameObject go = Instantiate(_loadLevelClickPrefab);
+        DontDestroyOnLoad(go);
+        AudioSource click = go.GetComponent<AudioSource>();
+        click.Play(0);
+        click.time = 0.2f;
+
         // go to the next level
+        Instantiate(_loadScreenPrefab);
         Scene scene = SceneManager.GetActiveScene();
-        SceneManager.LoadScene(scene.buildIndex + 1);
+        SceneManager.LoadSceneAsync(scene.buildIndex + 1);
     }
 }

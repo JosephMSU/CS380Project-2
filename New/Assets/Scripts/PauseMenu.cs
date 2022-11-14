@@ -16,17 +16,28 @@ public class PauseMenu : MonoBehaviour
     [SerializeField]
     private GameObject _optionsPrefab;
     [SerializeField]
-    private GameObject _QuitScreenPrefab;
-
+    private GameObject _quitScreenPrefab;
+    [SerializeField]
+    private GameObject _loadScreenPrefab;
+    [SerializeField]
+    private GameObject _loadMenuPrefab;
     [SerializeField]
     private AudioSource _buttonClickSound;
 
     public void MainMenuPushed()
     {
         Time.timeScale = 1;
+        Instantiate(_loadScreenPrefab);
+
+        GameObject go = Instantiate(_loadMenuPrefab);
+        DontDestroyOnLoad(go);
+        AudioSource click = go.GetComponent<AudioSource>();
+        click.Play(0);
+        click.time = 0.2f;
 
         // go to main menu
-        SceneManager.LoadScene(0);
+        Instantiate(_loadScreenPrefab);
+        SceneManager.LoadSceneAsync(0);
     }
 
     public void ExitButtonPushed()
@@ -58,7 +69,7 @@ public class PauseMenu : MonoBehaviour
     {
         _buttonClickSound.Play(0);
         _buttonClickSound.time = 0.2f;
-        Instantiate(_QuitScreenPrefab);
+        Instantiate(_quitScreenPrefab);
         StartCoroutine("Quit");
     }
 

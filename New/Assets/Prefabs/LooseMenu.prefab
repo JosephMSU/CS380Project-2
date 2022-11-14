@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8233708936423284721}
   m_Layer: 0
   m_Name: ButtonClickSound
-  m_TagString: Untagged
+  m_TagString: dontDestroyOnLoad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -143,7 +143,7 @@ GameObject:
   - component: {fileID: 6483407125883193866}
   m_Layer: 5
   m_Name: LooseMenu
-  m_TagString: Untagged
+  m_TagString: dontDestroyOnLoad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -249,7 +249,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _optionsPrefab: {fileID: 2524617002441475757, guid: bbc7c5bd125d59341a7f9ca082b01471, type: 3}
-  _QuitScreenPrefab: {fileID: 1236540474211352740, guid: abda86fabd41e584790a56b1870c4455, type: 3}
+  _quitScreenPrefab: {fileID: 1236540474211352740, guid: abda86fabd41e584790a56b1870c4455, type: 3}
+  _loadScreenPrefab: {fileID: 2608527635641053945, guid: 233e619bba24e1f459eca516a1ee7dea, type: 3}
+  _loadLevelClickPrefab: {fileID: 3492569718621676103, guid: bbdf45151fb63a6478c940f33b0514bf, type: 3}
   _info: {fileID: 6045262099981702794}
   _nextLevel: {fileID: 0}
   _gameOverSound: {fileID: 6483407125883193866}

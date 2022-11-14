@@ -163,7 +163,8 @@ public class BossFight : MonoBehaviour
         fightStarted = true;
 
         // During the fight
-        while (_boss != null)
+        Slider health = _bossHlthBar.GetComponent<Slider>();
+        while (health.value != 0)
         {
             yield return null;
         }
