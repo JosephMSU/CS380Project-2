@@ -41,8 +41,10 @@ public class Projectile : MonoBehaviour
             return;
 
         // destroy if outside of camera
-        float maxDist = cam.transform.position.x + cam.orthographicSize;
+        float maxDist = cam.transform.position.x + cam.orthographicSize-3;
         float minDist = cam.transform.position.x - cam.orthographicSize - 12f;
+        Debug.Log(maxDist);
+        Debug.Log(minDist);
         if (pos.x > maxDist || pos.x < minDist)
             Destroy(this.gameObject);
     }
