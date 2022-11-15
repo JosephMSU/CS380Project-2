@@ -75,6 +75,7 @@ public class Player : MonoBehaviour
     private bool _isWalking = false;
     private bool _inAir = false;
     private bool _inAirLongEnough = false;
+    private bool almostGrounded = false;
 
     public int GetHealth()
     {
@@ -359,15 +360,33 @@ public class Player : MonoBehaviour
                     grounded = true;
                     //Debug.Log(hit.distance);
                 }
+                else if (hit.distance <= hitDist + .1)
+                {
+                    almostGrounded = true;
+                }
+                else
+                {
+                    grounded = false;
+                    almostGrounded = false;
+                }
             }
         }
         else if(Physics.Raycast(ray2, out hit))
         {
             if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit.distance <= hitDist)
+                if (hit.distance <= hitDist)
                 {
                     grounded = true;
+                }
+                else if (hit.distance <= hitDist+.1)
+                {
+                    almostGrounded = true;
+                }
+                else
+                {
+                    grounded = false;
+                    almostGrounded = false;
                 }
             }
         }
@@ -375,9 +394,18 @@ public class Player : MonoBehaviour
         {
             if(hit.transform.gameObject.tag == "ground")
             {
-                if(hit.distance <= hitDist)
+                if (hit.distance <= hitDist)
                 {
                     grounded = true;
+                }
+                else if (hit.distance <= hitDist + .1)
+                {
+                    almostGrounded = true;
+                }
+                else
+                {
+                    grounded = false;
+                    almostGrounded = false;
                 }
             }
         }
@@ -392,6 +420,7 @@ public class Player : MonoBehaviour
         float hitDistance2 = hit2.distance;
         float hitDistance3 = hit3.distance;
         Debug.Log(hitDistance1);*/
+        myAnim.SetBool("Grounded", almostGrounded);
         return grounded;
         //return (hitDistance1 == 0 || hitDistance2 == 0 || hitDistance3 == 0);
     }
