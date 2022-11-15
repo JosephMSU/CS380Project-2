@@ -150,18 +150,18 @@ public class Player : MonoBehaviour
             _isWalking = true;
             left = false;
             transform.rotation = Quaternion.Euler(0, 90, 0);
-            myAnim.SetInteger("X", 1);
+            myAnim.SetBool("Moving", true);
         }
         else if (horizontal < -0.01)
         {
             _isWalking = true;
             left = true;
             transform.rotation = Quaternion.Euler(0, -90, 0);
-            myAnim.SetInteger("X", 1);
+            myAnim.SetBool("Moving", true);
         }
         else
         {
-            myAnim.SetInteger("X", 0);
+            myAnim.SetBool("Moving", false);
             _isWalking = false;
         }
 
@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
             {
                 walkSound.Play(0);
             }
+            myAnim.SetBool("Grounded", true);
         }
         else
         {
@@ -192,6 +193,7 @@ public class Player : MonoBehaviour
         {
             _inAir = true;
             StartCoroutine("inAirDelay");
+            myAnim.SetBool("Grounded", false);
         }
 
         if (!reloading && Input.GetKeyDown(KeyCode.Space))
@@ -262,6 +264,7 @@ public class Player : MonoBehaviour
         Vector3 projectilePos = this.transform.position;
         projectilePos.y += 2;
         int projectileDirection;
+
         if (left)
         {
             projectileDirection = -1;
