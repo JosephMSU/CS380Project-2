@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     private float reloadTime = 1.5f;
 
     [SerializeField]
-    private GameObject Projectile;
+    private GameObject projectile;
     [SerializeField]
     private Text _healthLeft;
     [SerializeField]
@@ -193,7 +193,7 @@ public class Player : MonoBehaviour
         else
         {
             _inAir = true;
-            StartCoroutine("inAirDelay");
+            StartCoroutine("InAirDelay");
             myAnim.SetBool("Grounded", false);
         }
 
@@ -201,11 +201,11 @@ public class Player : MonoBehaviour
         {
             reloading = true;
             StartCoroutine("Reload");
-            shoot();
+            Shoot();
         }
         if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
         {
-            jump();
+            Jump();
         }
         HitWall();
         if(!hitWall)
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour
         invincible = false;
     }
 
-    public void jump()
+    public void Jump()
     {
         if (IsGrounded())
         {
@@ -258,7 +258,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void shoot()
+    public void Shoot()
     {
         // set the position of the proectile
         gunSound.Play(0);
@@ -278,7 +278,7 @@ public class Player : MonoBehaviour
         }
 
         // Create the projectile, and set it's movement direction
-        GameObject proj = Instantiate(Projectile, projectilePos , Quaternion.identity);
+        GameObject proj = Instantiate(projectile, projectilePos , Quaternion.identity);
         proj.GetComponent<Projectile>().dir = projectileDirection;
     }
 
@@ -438,7 +438,7 @@ public class Player : MonoBehaviour
         _reloadTxt.SetActive(false);
     }
 
-    IEnumerator inAirDelay()
+    IEnumerator InAirDelay()
     {
         yield return new WaitForSeconds(0.5f);
         _inAirLongEnough = true;

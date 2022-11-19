@@ -45,6 +45,7 @@ public class MovingPlatform : MonoBehaviour
     void Start()
     {
         _player = GameObject.FindWithTag("Player");
+
         float difficulty = PlayerPrefs.GetFloat("difficulty");
         if (difficulty == 0.5f && _overrideEasyDifficultySlowDown)
             return;

@@ -72,7 +72,7 @@ public class Game : MonoBehaviour
 
         Destroy(buttonSound.gameObject);
     }
-
+    
     void OnApplicationFocus(bool focus)
     {
         if (!focus && !paused && !GameOverMenu.gameOver)

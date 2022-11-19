@@ -23,8 +23,9 @@ public class Projectile : MonoBehaviour
     public int dir; // -1 for left, or 1 for right.  Public because the Player script needs to set it's value.
     private Camera cam;
 
-    float maxDist;
-    float minDist;
+    private float maxDist;
+    private float minDist;
+
     void Start()
     {
         cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();

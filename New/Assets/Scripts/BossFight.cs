@@ -43,6 +43,8 @@ public class BossFight : MonoBehaviour
     private GameObject _bossHlthBar;
     [SerializeField]
     private MovingPlatform[] platforms;
+    [SerializeField]
+    private AudioSource _doorCloseSound;
 
     private GameObject _hero;
 
@@ -81,6 +83,7 @@ public class BossFight : MonoBehaviour
             _closeDoor.transform.position = dPos;
         }
 
+        _doorCloseSound.Play(0);
         StartCoroutine("ShakeCamera");
     }
 
