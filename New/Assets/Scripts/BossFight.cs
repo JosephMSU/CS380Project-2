@@ -73,6 +73,7 @@ public class BossFight : MonoBehaviour
         _hero.GetComponent<Player>().doNotMove = true;
 
         yield return new WaitForSeconds(0.5f);
+        _doorCloseSound.Play(0);
 
         // Close the door
         while (_closeDoor.transform.position.y > 38.1)
