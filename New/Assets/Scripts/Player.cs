@@ -129,6 +129,7 @@ public class Player : MonoBehaviour
         if (doNotMove)
         {
             walkSound.Pause();
+            myAnim.SetBool("Moving", false);
             return;
         }
 
@@ -148,14 +149,14 @@ public class Player : MonoBehaviour
         //float y1 = transform.position.y;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
-        if (horizontal > 0.01f)
+        if (horizontal > 0.01f && !doNotMove)
         {
             _isWalking = true;
             left = false;
             transform.rotation = Quaternion.Euler(0, 90, 0);
             myAnim.SetBool("Moving", true);
         }
-        else if (horizontal < -0.01)
+        else if (horizontal < -0.01 && !doNotMove)
         {
             _isWalking = true;
             left = true;
