@@ -37,9 +37,11 @@ public class Zombie : MonoBehaviour
     private AudioSource _dieSound;
 
     private float _dir = 0;
+    private float wallDirection;
     private GameObject _hero;
     private Camera _cam;
     private bool dead = false;
+    private bool hitWall;
     private Animator zomAnim;
 
     public static bool move = true;
@@ -53,6 +55,36 @@ public class Zombie : MonoBehaviour
         zomAnim = this.GetComponent<Animator>();
     }
 
+    void HitWall()
+    {
+        Vector3 position1 = new Vector3(this.transform.position.x, this.transform.position.y + .5f, this.transform.position.z);
+        Debug.DrawRay(position1, this.transform.forward, Color.green);
+        RaycastHit hitSideF;
+        Ray raySideF = new Ray(position1, transform.forward);
+
+        if (Physics.Raycast(raySideF, out hitSideF))
+        {
+            if (hitSideF.transform.gameObject.tag == "ground" && hitSideF.transform.rotation.z == 0)
+            {
+                if (hitSideF.distance <= 0.6)
+                {
+                    hitWall = true;
+                    //Debug.Log(hitSideF.distance);
+                }
+                else
+                {
+                    hitWall = false;
+                    //Debug.Log("Wasn't close enough");
+                }
+
+            }
+            else
+            {
+                hitWall = false;
+                //Debug.Log("Didn't hit ground.");
+            }
+        }
+    }
     IEnumerator Moan()
     {
         while(!dead)
@@ -122,8 +154,17 @@ public class Zombie : MonoBehaviour
             }
 
             // move toward player
-            pos.x += (_dir * Time.deltaTime * _speed);
-            transform.position = pos;
+            HitWall();
+            if(!hitWall)
+            {
+                pos.x += (_dir * Time.deltaTime * _speed);
+                transform.position = pos;
+            }
+            else
+            {
+                zomAnim.SetFloat("speed", 0);
+            }
+
         }
     }
     
