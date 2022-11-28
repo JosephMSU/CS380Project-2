@@ -59,6 +59,7 @@ public class Projectile : MonoBehaviour
         {
             other.gameObject.GetComponent<Zombie>().hitByPlayer = true;
             other.gameObject.GetComponent<Zombie>().TakeDamage(_dmgAmt);
+            Debug.Log("Hit Zombie");
         }
 
         Destroy(this.gameObject);
