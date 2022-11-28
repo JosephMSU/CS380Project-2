@@ -11,6 +11,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.Random;
+using System;
 
 public class Zombie : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class Zombie : MonoBehaviour
     private GameObject _hero;
     private Camera _cam;
     private bool dead = false;
+    private Animator zomAnim;
 
     public static bool move = true;
 
@@ -48,6 +50,7 @@ public class Zombie : MonoBehaviour
         _hero = GameObject.FindWithTag("Player");
         _cam = GameObject.FindWithTag("MainCamera").GetComponent<Camera>();
         StartCoroutine("Moan");
+        zomAnim = this.GetComponent<Animator>();
     }
 
     IEnumerator Moan()
@@ -92,19 +95,26 @@ public class Zombie : MonoBehaviour
         // move the zombie, if it should be moved.
         if (_boss || (move && pos.x > minMovDist && pos.x < maxMovDist))
         {
+            zomAnim.SetFloat("speed", _speed);
             // Get the horizontal distance from the player
             float horizontal = pos.x - _hero.transform.position.x;
-
+            Debug.Log(horizontal);
+            if(Math.Abs(horizontal)<1)
+            {
+                zomAnim.SetBool("attack", true);
+                Invoke("resetAttackBool", .5f);
+            }   
             // choose movement direction
             if (horizontal < -0.1)
             {
                 _dir = 1;
-                transform.rotation = Quaternion.Euler(-90, 90, 0);
+                transform.rotation = Quaternion.Euler(0, 90, 0);
+ 
             }
             else if (horizontal > 0.1)
             {
                 _dir = -1;
-                transform.rotation = Quaternion.Euler(-90, -90, 0);
+                transform.rotation = Quaternion.Euler(0, -90, 0);
             }
             else
             {
@@ -115,6 +125,11 @@ public class Zombie : MonoBehaviour
             pos.x += (_dir * Time.deltaTime * _speed);
             transform.position = pos;
         }
+    }
+    
+    void resetAttackBool()
+    {
+        zomAnim.SetBool("attack", false);
     }
 
     void OnCollisionStay(Collision other)

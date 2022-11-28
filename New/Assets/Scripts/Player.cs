@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
     private bool _inAir = false;
     private bool _inAirLongEnough = false;
     private bool almostGrounded = false;
-    private float prevYPosition;
+    //private float prevYPosition;
 
     public int GetHealth()
     {
@@ -217,9 +217,9 @@ public class Player : MonoBehaviour
             pos.x += (horizontal * Time.deltaTime * speed);
             transform.position = pos;
         }
-        Debug.Log(prevYPosition);
-        prevYPosition = (float)Math.Round((double)this.transform.position.y, 2);
-        Debug.Log(prevYPosition);
+        //Debug.Log(prevYPosition);
+        //prevYPosition = (float)Math.Round((double)this.transform.position.y, 2);
+        //Debug.Log(prevYPosition);
     }
 
     public void TakeDamage(int dmgAmt)
@@ -260,16 +260,7 @@ public class Player : MonoBehaviour
     {
         if (IsGrounded())
         {
-            if(prevYPosition < transform.position.y)
-            {
-                rBody.velocity = Vector3.up * (jumpSpeed + 4);
-                Debug.Log("Higher");
-            }
-            else
-            {
-                rBody.velocity = Vector3.up * jumpSpeed;
-            }
-            
+            rBody.velocity = Vector3.up * jumpSpeed;
         }
     }
 
