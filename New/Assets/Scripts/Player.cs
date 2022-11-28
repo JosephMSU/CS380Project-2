@@ -14,6 +14,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -76,6 +77,7 @@ public class Player : MonoBehaviour
     private bool _inAir = false;
     private bool _inAirLongEnough = false;
     private bool almostGrounded = false;
+    private float prevYPosition;
 
     public int GetHealth()
     {
@@ -143,7 +145,7 @@ public class Player : MonoBehaviour
         Debug.DrawRay(transform.position, down, Color.green);
         Debug.DrawRay(position4, down, Color.red);
         Debug.DrawRay(position5, down, Color.blue);*/
-        float y1 = transform.position.y;
+        //float y1 = transform.position.y;
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
         if (horizontal > 0.01f)
@@ -213,7 +215,10 @@ public class Player : MonoBehaviour
             Vector3 pos = transform.position;
             pos.x += (horizontal * Time.deltaTime * speed);
             transform.position = pos;
-        } 
+        }
+        Debug.Log(prevYPosition);
+        prevYPosition = (float)Math.Round((double)this.transform.position.y, 2);
+        Debug.Log(prevYPosition);
     }
 
     public void TakeDamage(int dmgAmt)
@@ -254,7 +259,16 @@ public class Player : MonoBehaviour
     {
         if (IsGrounded())
         {
-            rBody.velocity = Vector3.up * jumpSpeed;
+            if(prevYPosition < transform.position.y)
+            {
+                rBody.velocity = Vector3.up * (jumpSpeed + 4);
+                Debug.Log("Higher");
+            }
+            else
+            {
+                rBody.velocity = Vector3.up * jumpSpeed;
+            }
+            
         }
     }
 
