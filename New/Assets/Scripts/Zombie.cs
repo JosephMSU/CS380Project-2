@@ -58,13 +58,17 @@ public class Zombie : MonoBehaviour
     void HitWall()
     {
         Vector3 position1 = new Vector3(this.transform.position.x, this.transform.position.y + .5f, this.transform.position.z);
-        Debug.DrawRay(position1, this.transform.forward, Color.green);
+        Vector3 position2 = new Vector3(this.transform.position.x, this.transform.position.y + 2.3f, this.transform.position.z);
+        Vector3 position3 = new Vector3(this.transform.position.x, this.transform.position.y + 1.4f, this.transform.position.z);
+        //Debug.DrawRay(position1, this.transform.forward, Color.green);
+        //Debug.DrawRay(position2, this.transform.forward, Color.green);
+        //Debug.DrawRay(position3, this.transform.forward, Color.green);
         RaycastHit hitSideF;
         Ray raySideF = new Ray(position1, transform.forward);
 
         if (Physics.Raycast(raySideF, out hitSideF))
         {
-            if (hitSideF.transform.gameObject.tag == "ground" && hitSideF.transform.rotation.z == 0)
+            if (hitSideF.transform.gameObject.tag == "ground")//&& hitSideF.transform.rotation.z == 0)
             {
                 if (hitSideF.distance <= 0.6)
                 {
@@ -82,6 +86,44 @@ public class Zombie : MonoBehaviour
             {
                 hitWall = false;
                 //Debug.Log("Didn't hit ground.");
+            }
+        }
+
+        if (!hitWall)
+        {
+            raySideF = new Ray(position2, transform.forward);
+            if (Physics.Raycast(raySideF, out hitSideF))
+            {
+                if (hitSideF.transform.gameObject.tag == "ground")//&& hitSideF.transform.rotation.z == 0)
+                {
+                    if (hitSideF.distance <= .6)
+                    {
+                        hitWall = true;
+                    }
+                    else
+                    {
+                        hitWall = false;
+                    }
+                }
+            }
+        }
+
+        if (!hitWall)
+        {
+            raySideF = new Ray(position3, transform.forward);
+            if (Physics.Raycast(raySideF, out hitSideF))
+            {
+                if (hitSideF.transform.gameObject.tag == "ground")//&& hitSideF.transform.rotation.z == 0)
+                {
+                    if (hitSideF.distance <= .6)
+                    {
+                        hitWall = true;
+                    }
+                    else
+                    {
+                        hitWall = false;
+                    }
+                }
             }
         }
     }
@@ -130,7 +172,7 @@ public class Zombie : MonoBehaviour
             zomAnim.SetFloat("speed", _speed);
             // Get the horizontal distance from the player
             float horizontal = pos.x - _hero.transform.position.x;
-            Debug.Log(horizontal);
+            //Debug.Log(horizontal);
             if(Math.Abs(horizontal)<1)
             {
                 zomAnim.SetBool("attack", true);
@@ -206,12 +248,29 @@ public class Zombie : MonoBehaviour
     // then destroy it.
     IEnumerator Die()
     {
-        Vector3 pos = transform.position;
-        pos.y = -100;
-        transform.position = pos;
-
+        this.gameObject.layer = 7;
+        this.gameObject.tag = "Player";
+        playAnimation();
+        this.GetComponent<BoxCollider>().enabled = true;
+        this.GetComponent<MeshCollider>().enabled = false;
+        Invoke("moveZombieAfterDeath", 2f);
         yield return new WaitForSeconds(2f);
 
         Destroy(this.gameObject);
+    }
+
+    void playAnimation()
+    {
+        zomAnim.SetBool("death", true);
+    }
+    void moveZombieAfterDeath()
+    {
+        Vector3 pos = transform.position;
+        pos.y = -100;
+        transform.position = pos;
+    }
+    void moveZombieBody()
+    {
+
     }
 }
