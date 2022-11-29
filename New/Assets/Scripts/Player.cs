@@ -246,6 +246,10 @@ public class Player : MonoBehaviour
         invincible = true;
         float wait = 0;
         this.gameObject.layer = 11;
+        foreach (Transform child in this.transform)
+        {
+            child.gameObject.layer = 11;
+        }
 
         while (wait < _invincibleTime)
         {
@@ -254,6 +258,10 @@ public class Player : MonoBehaviour
             yield return null;
         }
         this.gameObject.layer = 7;
+        foreach (Transform child in this.transform)
+        {
+            child.gameObject.layer = 7;
+        }
         invincible = false;
     }
 

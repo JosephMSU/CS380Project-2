@@ -220,7 +220,7 @@ public class Zombie : MonoBehaviour
         if (other.gameObject == _hero && !Player.invincible)
         {
             // damage the player
-            print("Collided With Hero");
+            //print("Collided With Hero");
             _hero.GetComponent<Player>().TakeDamage(_dmgAmt);
         }
     }
