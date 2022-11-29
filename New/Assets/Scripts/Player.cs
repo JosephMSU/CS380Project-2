@@ -245,6 +245,7 @@ public class Player : MonoBehaviour
     {
         invincible = true;
         float wait = 0;
+        this.gameObject.layer = 11;
 
         while (wait < _invincibleTime)
         {
@@ -252,7 +253,7 @@ public class Player : MonoBehaviour
                 wait += Time.deltaTime;
             yield return null;
         }
-
+        this.gameObject.layer = 7;
         invincible = false;
     }
 
@@ -417,7 +418,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Debug.Log("Didn't hit");
+            //Debug.Log("Didn't hit");
         }
 
 

@@ -16,7 +16,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - MovingPlatformBossRoom
   - Water
   - UI
   - Projectile
@@ -24,8 +24,8 @@ TagManager:
   - bossGround
   - boss
   - building
-  - 
-  - 
+  - GoThroughZombies
+  - Enemy
   - 
   - 
   - 
