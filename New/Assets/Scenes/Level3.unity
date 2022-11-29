@@ -38756,7 +38756,7 @@ MonoBehaviour:
   _pauseSound: {fileID: 1453533923}
   paused: 0
   score: 0
-  timer: 200
+  timer: 120
 --- !u!114 &963194230
 MonoBehaviour:
   m_ObjectHideFlags: 0
