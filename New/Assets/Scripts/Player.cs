@@ -269,7 +269,7 @@ public class Player : MonoBehaviour
         // set the position of the proectile
         gunSound.Play(0);
         Vector3 projectilePos = this.transform.position;
-        projectilePos.y += 2;
+        projectilePos.y += 1.9f;
         int projectileDirection;
 
         if (left)

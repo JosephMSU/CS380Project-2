@@ -6076,6 +6076,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &119414595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 119414593}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8, y: 2, z: 2}
+  m_Center: {x: -1, y: -0.7, z: 0}
 --- !u!1001 &120249616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23470,6 +23483,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &526742708
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 526742706}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.8, z: 1.8}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &527111273
 GameObject:
   m_ObjectHideFlags: 0
@@ -26420,6 +26446,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &602786930
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 602786928}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.8, z: 1.8}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &607632353
 GameObject:
   m_ObjectHideFlags: 0
@@ -26912,6 +26951,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &628546495
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628546493}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8, y: 2, z: 2}
+  m_Center: {x: -1, y: -0.7, z: 0}
 --- !u!1 &629191737
 GameObject:
   m_ObjectHideFlags: 0
@@ -53630,6 +53682,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &1381613281
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381613279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.8, z: 1.8}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &1383811300
 GameObject:
   m_ObjectHideFlags: 0
@@ -64491,6 +64556,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &1635395183
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1635395181}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8, y: 2, z: 2}
+  m_Center: {x: -1, y: -0.7, z: 0}
 --- !u!1001 &1639404944
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69536,6 +69614,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &1795611677
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1795611675}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2, y: 1.8, z: 1.8}
+  m_Center: {x: 0, y: 0.3, z: 0}
 --- !u!1 &1796302068
 GameObject:
   m_ObjectHideFlags: 0
@@ -73610,6 +73701,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _dmgAmt: 1
   _damagesZombies: 1
+--- !u!65 &1864762373
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1864762371}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8, y: 2, z: 2}
+  m_Center: {x: -7.45, y: 0, z: 0}
 --- !u!1 &1865173286
 GameObject:
   m_ObjectHideFlags: 0
