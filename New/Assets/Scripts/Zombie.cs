@@ -250,7 +250,7 @@ public class Zombie : MonoBehaviour
     {
         this.gameObject.layer = 7;
         this.gameObject.tag = "Player";
-        playAnimation();
+        zomAnim.SetBool("death", true);
         this.GetComponent<BoxCollider>().enabled = true;
         this.GetComponent<MeshCollider>().enabled = false;
         Invoke("moveZombieAfterDeath", 2f);
@@ -259,18 +259,10 @@ public class Zombie : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-    void playAnimation()
-    {
-        zomAnim.SetBool("death", true);
-    }
     void moveZombieAfterDeath()
     {
         Vector3 pos = transform.position;
         pos.y = -100;
         transform.position = pos;
-    }
-    void moveZombieBody()
-    {
-
     }
 }
