@@ -17626,6 +17626,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!4 &388906898 stripped
@@ -49113,6 +49121,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!4 &1266601734 stripped
@@ -50557,6 +50573,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!4 &1306824232 stripped
@@ -51249,7 +51273,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3782373429142993368, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 186.88
+      value: 188
       objectReference: {fileID: 0}
     - target: {fileID: 3782373429142993368, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_LocalPosition.y
@@ -51315,6 +51339,14 @@ PrefabInstance:
       propertyPath: _moveOffset
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!4 &1316737943 stripped
@@ -66932,6 +66964,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!4 &1728443815 stripped
@@ -73977,6 +74017,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!4 &1867456247 stripped

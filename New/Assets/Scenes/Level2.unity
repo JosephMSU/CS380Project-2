@@ -19901,6 +19901,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &423437052
@@ -23663,6 +23683,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -35084,6 +35124,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (8)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &745263636
@@ -37036,6 +37096,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -39590,6 +39670,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &851027048
@@ -41985,6 +42085,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (17)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -46202,6 +46322,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (15)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &1002939788
@@ -49457,6 +49597,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (14)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &1080097239
@@ -49675,6 +49835,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -50071,6 +50251,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &1099826921
@@ -50910,6 +51098,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -55913,6 +56121,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &1223190701
@@ -60128,6 +60356,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -70544,6 +70792,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &1570413828
@@ -70932,6 +71200,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -78713,6 +79001,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1001 &1752408772
@@ -78769,6 +79077,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -84453,6 +84781,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2 (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
@@ -98941,6 +99289,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NewZombieV2 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
 --- !u!1 &2147278563
@@ -99083,6 +99451,26 @@ PrefabInstance:
     - target: {fileID: 3782373429143283192, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
       propertyPath: m_Name
       value: NewZombieV2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530796, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: f84c5537c5e592a4583f3ee071f9a88d, type: 2}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3782373430872530799, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c0c829d5739ef84b8043568718fbe9d, type: 3}
