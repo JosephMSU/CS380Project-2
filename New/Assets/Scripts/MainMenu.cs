@@ -80,13 +80,14 @@ public class MainMenu : MonoBehaviour
         }
 
         // determine which levels have been played
+        /*
         int level = PlayerPrefs.GetInt("level");
         if (level < 3)
         {
             _button3.interactable = false;
             if (level < 2)
                 _button2.interactable = false;
-        }
+        }*/
     }
 
     IEnumerator DestroyNotDestroyedOnLoad()
